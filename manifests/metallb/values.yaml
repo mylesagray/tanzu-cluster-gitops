@@ -1,0 +1,17 @@
+metallb:
+  rbac:
+    create: true
+  controller:
+    image:
+      repository: metallb/controller
+      tag: v0.9.3
+  speaker:
+    image:
+      repository: metallb/speaker
+      tag: v0.9.3
+  configInline:
+    address-pools:
+    - name: k8s-ip-space
+      protocol: layer2
+      addresses:
+      - 192.168.1.51-192.168.1.99

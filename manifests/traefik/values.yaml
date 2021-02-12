@@ -1,0 +1,31 @@
+traefik:
+  rbac:
+    enabled: true
+  kubernetes:
+    ingressEndpoint:
+      useDefaultPublishedService: true
+  dashboard:
+    enabled: true
+    domain: "traefik.apps.blah.cloud"
+  ssl:
+    enabled: true
+    enforced: true
+    permanentRedirect: true
+    insecureSkipVerify: true
+  acme:
+    enabled: true
+    challengeType: "dns-01"
+    keyType: RSA4096
+    email: mg@mylesgray.com
+    onHostRule: true
+    staging: false
+    logging: true
+    delayBeforeCheck: 0
+    resolvers:
+    - abby.ns.cloudflare.com
+    - sid.ns.cloudflare.com
+    dnsProvider:
+      name: cloudflare
+      cloudflare:
+        CLOUDFLARE_EMAIL: "mg@mylesgray.com"
+        CLOUDFLARE_API_KEY: "42d59ec073316bfbbb1ee350bbdf5e7a69196"

@@ -1,0 +1,54 @@
+velero:
+  image:
+    repository: mylesagray/velero
+    tag: master
+  configuration:
+    provider: aws
+    backupStorageLocation:
+      bucket: velero
+      config:
+        region: minio
+        s3ForcePathStyle: true
+        s3Url: https://minio.belfast.blah.cloud
+    volumeSnapshotLocation:
+      name: default
+      config:
+        region: eu-west-1
+    logFormat: json
+  credentials:
+    useSecret: true
+    secretContents:
+      cloud: |
+        [default]
+        aws_access_key_id = minio
+        aws_secret_access_key = minio123
+  snapshotsEnabled: false
+  deployRestic: true
+  restic:
+    podVolumePath: /var/lib/kubelet/pods
+    privileged: true
+  configMaps:
+    restic-restore-action-config:
+      labels:
+        velero.io/plugin-config: ""
+        velero.io/restic: RestoreItemAction
+      data:
+        image: mylesagray/velero-restic-restore-helper:master
+  schedules:
+    daily:
+      schedule: 0 0 * * *
+      template:
+        snapshotVolumes: false
+        ttl: 168h
+    hourly:
+      schedule: 0 * * * *
+      template:
+        snapshotVolumes: false
+        ttl: 24h
+  initContainers:
+  - name: velero-plugin-for-aws
+    image: velero/velero-plugin-for-aws:main
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+      - mountPath: /target
+        name: plugins

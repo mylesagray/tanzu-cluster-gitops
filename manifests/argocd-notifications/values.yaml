@@ -1,0 +1,108 @@
+argocd-notifications:
+  # ArgoCD dashboard url; used in place of {{.context.argocdUrl}} in templates
+  argocdUrl: https://argocd.apps.blah.cloud
+
+  image:
+    repository: tomaszszuster/argocd-notifications
+    tag: v0.7.0
+
+  secret:
+    # Whether helm chart creates controller secret
+    create: true
+
+    notifiers:
+      # For more information: https://argoproj-labs.github.io/argocd-notifications/services/overview/
+
+      slack:
+        # For more information: https://argoproj-labs.github.io/argocd-notifications/services/slack/
+
+        # Specifies whether Slack notifier should be configured
+        enabled: true
+        # OAuth Access Token
+        token: xoxb-88283913573-1267995196103-sRNktUp1t88AAALE94yhbGjc
+        # Optional override username
+        username: ArgoCD
+        # Optional override signingSecret: https://argoproj-labs.github.io/argocd-notifications/recipients/slack-bot/
+        signingSecret: fa4350c7b6f9bdd3cfa8f7234fe9e932
+
+  subscriptions:
+    # Assignment of recipients by notification channel to triggers in several forms:
+    #
+    # global subscription for all type of notifications
+    - recipients:
+        - slack:kubernetes
+    #     - webhook:github
+    #
+    # subscription for on-sync-status-unknown trigger notifications
+    # - recipients:
+    #     - slack:test2
+    #     - email:test@gmail.com
+    #   trigger: on-sync-status-unknown
+    #
+    # global subscription restricted to applications with matching labels only
+    # - recipients:
+    #     - slack:test3
+    #   selector: test=true
+    #
+    # For more information: https://argoproj-labs.github.io/argocd-notifications/triggers_and_templates/
+
+  templates: []
+    # The notification template is used to generate the notification content. The template is leveraging html/template
+    # golang package and allow to define notification title and body. The template is meant to be reusable and can be
+    # referenced by multiple triggers.
+    #
+    # Add your custom template
+    # - name: my-custom-template
+    #   title: Hello {{.app.metadata.name}}
+    #   body: |
+    #     Application details: {{.context.argocdUrl}}/applications/{{.app.metadata.name}}.
+    #
+    # Override one field in built-in template
+    # - name: on-sync-succeeded
+    #   title: Application {{.app.metadata.name}} sync status is {{.app.status.sync.status}}
+    #
+    # For more information: https://argoproj-labs.github.io/argocd-notifications/triggers_and_templates/
+
+  triggers:
+    # The condition when the notification should be sent. The definition includes name, condition and notification template reference.
+    #
+    # Enable built-in triggers:
+    #
+    # Application has degraded
+    - name: on-health-degraded
+      enabled: true
+    #
+    # Application syncing has failed
+    - name: on-sync-failed
+      enabled: true
+    #
+    # Application is being synced
+    # - name: on-sync-running
+    #   enabled: true
+    #
+    # Application status is 'Unknown'
+    - name: on-sync-status-unknown
+      enabled: true
+    #
+    # Application syncing has succeeded
+    - name: on-sync-succeeded
+      enabled: true
+    #
+    #
+    # Or define your custom triggers:
+    #
+    # - name: my-custom-trigger
+    #   condition: app.status.sync.status == 'Unknown'
+    #   template: my-custom-template
+    #
+    # For more information: https://argoproj-labs.github.io/argocd-notifications/triggers_and_templates/
+
+  bots:
+    # For more information: https://argoproj-labs.github.io/argocd-notifications/recipients/bot/
+    slack:
+      # You have to set secret.notifiers.slack.signingSecret
+      enabled: true
+
+      image:
+        repository: tomaszszuster/argocd-notifications
+        tag: v0.7.0

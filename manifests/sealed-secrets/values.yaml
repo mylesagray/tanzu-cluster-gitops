@@ -1,0 +1,6 @@
+sealed-secrets:
+  fullnameOverride: sealed-secrets-controller
+  dashboards:
+    create: true
+  serviceMonitor:
+    create: true
