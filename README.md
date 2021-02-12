@@ -60,3 +60,6 @@ make cleanup
 * Move from traefik to NginX + cert-manager
 * Add fluentbit to Argo
 * Add kube-prometheus to Argo
+* Refactor namespaces
+* Refactor apps into projects
+* Use sync waves
