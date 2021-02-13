@@ -1,26 +1,27 @@
-rbac:
-  create: true
-  clusterAdminRole: true
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: traefik 
-  hosts: 
-  - k8s.apps.blah.cloud
-metrics-server:
-  enabled: false
+kubernetes-dashboard:
+  rbac:
+    create: true
+    clusterAdminRole: true
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: traefik 
+    hosts: 
+    - k8s.apps.blah.cloud
+  metrics-server:
+    enabled: false
+    image:
+      repository: k8s.gcr.io/metrics-server-arm
+      tag: v0.4.2
   image:
-    repository: k8s.gcr.io/metrics-server-arm
-    tag: v0.4.2
-image:
-  tag: v2.1.0
-settings: 
-  clusterName: "rak8s"
-  ## Max number of items that can be displayed on each list page
-  # itemsPerPage: 10
-  ## Number of seconds between every auto-refresh of logs
-  # logsAutoRefreshTimeInterval: 5
-  ## Number of seconds between every auto-refresh of every resource. Set 0 to disable
-  # resourceAutoRefreshTimeInterval: 5
-  ## Hide all access denied warnings in the notification panel
-  # disableAccessDeniedNotifications: false
+    tag: v2.1.0
+  settings: 
+    clusterName: "rak8s"
+    ## Max number of items that can be displayed on each list page
+    # itemsPerPage: 10
+    ## Number of seconds between every auto-refresh of logs
+    # logsAutoRefreshTimeInterval: 5
+    ## Number of seconds between every auto-refresh of every resource. Set 0 to disable
+    # resourceAutoRefreshTimeInterval: 5
+    ## Hide all access denied warnings in the notification panel
+    # disableAccessDeniedNotifications: false
