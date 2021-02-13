@@ -4,7 +4,7 @@ argocd-notifications:
 
   image:
     repository: tomaszszuster/argocd-notifications
-    tag: v0.7.0
+    tag: v0.7.1
 
   secret:
     # Whether helm chart creates controller secret
@@ -105,4 +105,4 @@ argocd-notifications:
 
       image:
         repository: tomaszszuster/argocd-notifications
-        tag: v0.7.0
+        tag: v0.7.1

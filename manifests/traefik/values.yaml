@@ -26,6 +26,4 @@ traefik:
     - sid.ns.cloudflare.com
     dnsProvider:
       name: cloudflare
-      cloudflare:
-        CLOUDFLARE_EMAIL: "mg@mylesgray.com"
-        CLOUDFLARE_API_KEY: "42d59ec073316bfbbb1ee350bbdf5e7a69196"
+      existingSecretName: traefik-dnsprovider-config
