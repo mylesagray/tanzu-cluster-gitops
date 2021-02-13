@@ -8,22 +8,7 @@ argocd-notifications:
 
   secret:
     # Whether helm chart creates controller secret
-    create: true
-
-    notifiers:
-      # For more information: https://argoproj-labs.github.io/argocd-notifications/services/overview/
-
-      slack:
-        # For more information: https://argoproj-labs.github.io/argocd-notifications/services/slack/
-
-        # Specifies whether Slack notifier should be configured
-        enabled: true
-        # OAuth Access Token
-        token: xoxb-88283913573-1267995196103-sRNktUp1t88AAALE94yhbGjc
-        # Optional override username
-        username: ArgoCD
-        # Optional override signingSecret: https://argoproj-labs.github.io/argocd-notifications/recipients/slack-bot/
-        signingSecret: fa4350c7b6f9bdd3cfa8f7234fe9e932
+    create: false
 
   subscriptions:
     # Assignment of recipients by notification channel to triggers in several forms:

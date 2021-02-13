@@ -16,6 +16,7 @@ kubeseal --format=yaml < ~/Desktop/argocd-secret.yaml > resources/secrets/argocd
 kubeseal --format=yaml < ~/Desktop/argocd-github-secret.yaml > resources/secrets/argocd-github-sealed-secret.yaml
 kubeseal --format=yaml < ~/Desktop/argocd-rak8s-secret.yaml > resources/secrets/argocd-rak8s-sealed-secret.yaml
 kubeseal --format=yaml < ~/Desktop/traefik-dnsprovider-config.yaml > resources/secrets/traefik-dnsprovider-config-sealed.yaml
+kubeseal --format=yaml < ~/Desktop/argocd-notifications-secret.yaml > resources/secrets/argocd-notifications-secret-sealed.yaml
 ```
 
 ### Backup seal key
