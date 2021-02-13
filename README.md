@@ -60,9 +60,10 @@ make cleanup
 ## Todo
 
 * Add secrets as an ArgoCD Application
-* Add fluentbit as an ArgoCD Application
-* Add kube-prometheus as an ArgoCD application
+* Add fluent-bit as an ArgoCD Application
+* Add kube-prometheus as an ArgoCD Application
 * Move from traefik to nginx + cert-manager
 * Refactor namespaces
-* Refactor apps into projects
+* Refactor App hierarchy
+* Refactor Apps into Projects
 * Use sync waves
