@@ -9,6 +9,8 @@ kubernetes-dashboard:
     - k8s.apps.blah.cloud
   metrics-server:
     enabled: true
+    image:
+      repository: k8s.gcr.io/metrics-server-arm
   image:
     tag: v2.1.0
   settings: 
