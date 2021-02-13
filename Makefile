@@ -13,7 +13,7 @@ install-argocd:
 	kubectl create ns argocd || true
 	kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/crds/appproject-crd.yaml
 	kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/crds/application-crd.yaml
-	kubectl apply -R -n argocd -f resources/
+	kubectl apply -R -f resources/
 	helm upgrade --install argocd -n argocd ./manifests/argocd -f manifests/argocd/values.yaml
 
 install-cert-manager:
