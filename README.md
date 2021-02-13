@@ -67,3 +67,4 @@ make cleanup
 * Refactor App hierarchy
 * Refactor Apps into Projects
 * Use sync waves
+* Make ArgoCD GitHub webhook authenticated
