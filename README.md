@@ -59,9 +59,10 @@ make cleanup
 
 ## Todo
 
-* Move from traefik to NginX + cert-manager
-* Add fluentbit to Argo
-* Add kube-prometheus to Argo
+* Add secrets as an ArgoCD Application
+* Add fluentbit as an ArgoCD Application
+* Add kube-prometheus as an ArgoCD application
+* Move from traefik to nginx + cert-manager
 * Refactor namespaces
 * Refactor apps into projects
 * Use sync waves
