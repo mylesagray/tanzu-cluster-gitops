@@ -11,6 +11,9 @@ kubernetes-dashboard:
     enabled: true
     image:
       repository: k8s.gcr.io/metrics-server-arm
+    args:
+      - --kubelet-insecure-tls
+      - --kubelet-preferred-address-types=InternalIP
   image:
     tag: v2.1.0
   settings: 
