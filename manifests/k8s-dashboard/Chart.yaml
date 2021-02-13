@@ -1,4 +1,7 @@
+apiVersion: v2
 name: kubernetes-dashboard
+description: Kubernetes Dashboard
+version: 0.1.0
 dependencies:
 - name: kubernetes-dashboard
   version: 4.0.0

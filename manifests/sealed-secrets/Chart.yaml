@@ -1,5 +1,5 @@
-name: sealed-secrets
 apiVersion: v2
+name: sealed-secrets
 version: v0.0.1
 dependencies:
 - name: sealed-secrets
