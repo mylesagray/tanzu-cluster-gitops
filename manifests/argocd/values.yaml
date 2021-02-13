@@ -74,20 +74,6 @@ argo-cd:
       policy.csv: |
         g, blahcloud:k8s, role:admin
     additionalApplications:
-    - name: argocd-notifications
-      namespace: argocd
-      project: default
-      source:
-        repoURL: https://github.com/mylesagray/home-cluster-gitops.git
-        targetRevision: HEAD
-        path: manifests/argocd-notifications
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: argocd
-      syncPolicy:
-        automated:
-          prune: false
-          selfHeal: true
     - name: bootstrap-cluster
       namespace: argocd
       project: default
@@ -112,20 +98,6 @@ argo-cd:
       destination:
         server: https://kubernetes.default.svc
         namespace: cheese
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-    - name: bootstrap-dashboard
-      namespace: argocd
-      project: default
-      source:
-        repoURL: https://github.com/mylesagray/home-cluster-gitops.git
-        targetRevision: HEAD
-        path: apps/k8s-dashboard
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: kubernetes-dashboard
       syncPolicy:
         automated:
           prune: true
