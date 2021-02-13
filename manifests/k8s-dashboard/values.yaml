@@ -1,7 +1,6 @@
 kubernetes-dashboard:
   rbac:
     create: true
-    clusterAdminRole: true
   ingress:
     enabled: true
     annotations:
