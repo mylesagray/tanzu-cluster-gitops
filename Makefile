@@ -13,7 +13,6 @@ install-argocd:
 	kubectl create ns argocd || true
 	kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/crds/appproject-crd.yaml
 	kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/crds/application-crd.yaml
-	kubectl apply -R -f resources/
 	helm upgrade --install argocd -n argocd ./manifests/argocd -f manifests/argocd/values.yaml
 
 install-cert-manager:
@@ -26,7 +25,6 @@ install-cert-manager:
 
 cleanup:
 	helm delete argocd || true
-	kubectl delete -R -f resources/ || true
 	kubectl delete appprojects.argoproj.io --all
 	kubectl delete applications.argoproj.io --all
 	kubectl delete -f https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/crds/appproject-crd.yaml
