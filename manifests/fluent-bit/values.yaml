@@ -69,14 +69,16 @@ fluent-bit:
           Name es
           Match kube.*
           Host es.belfast.blah.cloud
-          Retry_Limit False
+          Retry_Limit 10
+          Trace_Error On
 
       [OUTPUT]
           Name es
           Match host.*
           Host es.belfast.blah.cloud
           Logstash_Prefix node
-          Retry_Limit False
+          Retry_Limit 10
+          Trace_Error On
 
     ## https://docs.fluentbit.io/manual/pipeline/parsers
     customParsers: |
