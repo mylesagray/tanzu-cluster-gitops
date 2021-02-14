@@ -23,7 +23,6 @@ dashboards:
   enabled: true
   labelKey: grafana_dashboard
 
-## https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/configuration-file
 config:
   service: |
     [SERVICE]
@@ -35,8 +34,6 @@ config:
         HTTP_Server On
         HTTP_Listen 0.0.0.0
         HTTP_Port {{ .Values.service.port }}
-
-  ## https://docs.fluentbit.io/manual/pipeline/inputs
   inputs: |
     [INPUT]
         Name tail
@@ -51,8 +48,6 @@ config:
         Tag host.*
         Systemd_Filter _SYSTEMD_UNIT=kubelet.service
         Read_From_Tail On
-
-  ## https://docs.fluentbit.io/manual/pipeline/filters
   filters: |
     [FILTER]
         Name kubernetes
@@ -61,8 +56,6 @@ config:
         Keep_Log Off
         K8S-Logging.Parser On
         K8S-Logging.Exclude On
-
-  ## https://docs.fluentbit.io/manual/pipeline/outputs
   outputs: |
     [OUTPUT]
         Name es
@@ -78,8 +71,6 @@ config:
         Logstash_Format On
         Logstash_Prefix node
         Retry_Limit False
-
-  ## https://docs.fluentbit.io/manual/pipeline/parsers
   customParsers: |
     [PARSER]
         Name docker_no_time
