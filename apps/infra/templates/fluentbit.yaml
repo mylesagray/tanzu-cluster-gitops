@@ -18,6 +18,7 @@ spec:
         - values.yaml
   destination:
     server: {{ .Values.spec.destination.server }}
+    namespace: logging
   syncPolicy:
     automated:
       prune: true
