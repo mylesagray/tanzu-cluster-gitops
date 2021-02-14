@@ -69,18 +69,12 @@ fluent-bit:
           Name es
           Match kube.*
           Host es.belfast.blah.cloud
-          Port  9200
-          Index fluentbit
-          Logstash_Format On
           Retry_Limit False
 
       [OUTPUT]
           Name es
           Match host.*
           Host es.belfast.blah.cloud
-          Port  9200
-          Index fluentbit
-          Logstash_Format On
           Logstash_Prefix node
           Retry_Limit False
 
