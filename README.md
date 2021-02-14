@@ -66,5 +66,6 @@ make cleanup
 * Refactor namespaces
 * Refactor App hierarchy
 * Refactor Apps into Projects
+* Refactor helm charts into native ArgoCD Apps
 * Use sync waves
 * Make ArgoCD GitHub webhook authenticated
