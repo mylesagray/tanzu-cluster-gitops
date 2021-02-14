@@ -30,7 +30,7 @@ fluent-bit:
       [SERVICE]
           Flush 1
           Daemon Off
-          Log_Level info
+          Log_Level debug
           Parsers_File parsers.conf
           Parsers_File custom_parsers.conf
           HTTP_Server On
