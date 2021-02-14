@@ -70,6 +70,7 @@ fluent-bit:
           Match kube.*
           Host es.belfast.blah.cloud
           Retry_Limit 10
+          Replace_Dots On
           Trace_Error On
 
       [OUTPUT]
