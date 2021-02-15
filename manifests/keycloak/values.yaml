@@ -9,3 +9,7 @@ keycloak:
     enabled: true
     serviceMonitor:
       enabled: true
+  postgresql:
+    image:
+      repository: postgres
+      tag: latest
