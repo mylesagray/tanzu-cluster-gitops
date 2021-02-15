@@ -1,0 +1,11 @@
+keycloak:
+  image:
+    repository: mylesagray/keycloak-arm
+    tag: latest
+  ingress:
+    enabled: true
+    hostname: keycloak.apps.blah.cloud
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
