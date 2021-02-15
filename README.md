@@ -59,7 +59,10 @@ make cleanup
 
 ## Todo
 
-* Upgrade charts to Helm v2 API
+* Add Tekton
+* Add OIDC provider
+* Add Istio
+* Add KNative
 * Add kube-prometheus as an ArgoCD Application
 * Move from traefik to nginx + cert-manager
 * Refactor namespaces
