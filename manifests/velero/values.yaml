@@ -46,7 +46,7 @@ velero:
         ttl: 24h
   initContainers:
   - name: velero-plugin-for-aws
-    image: velero/velero-plugin-for-aws:v1.1.0
+    image: velero/velero-plugin-for-aws:main
     imagePullPolicy: IfNotPresent
     volumeMounts:
       - mountPath: /target
