@@ -1,2 +1,2 @@
-manifests/**/charts/*
+manifests/**/charts/
 Chart.lock
