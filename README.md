@@ -59,8 +59,7 @@ make cleanup
 
 ## Todo
 
-* Add secrets as an ArgoCD Application
-* Add fluent-bit as an ArgoCD Application
+* Upgrade charts to Helm v2 API
 * Add kube-prometheus as an ArgoCD Application
 * Move from traefik to nginx + cert-manager
 * Refactor namespaces
