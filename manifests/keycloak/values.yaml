@@ -12,7 +12,7 @@ keycloak:
   postgresql:
     image:
       repository: postgres
-      tag: latest
+      tag: 11.11
     postgresqlDataDir: /data/pgdata
     persistence:
       mountPath: /data/
