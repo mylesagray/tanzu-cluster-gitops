@@ -86,7 +86,7 @@ argo-cd:
         namespace: infra
       syncPolicy:
         automated:
-          prune: false
+          prune: true
           selfHeal: true
     - name: boostrap-cheese
       namespace: argocd

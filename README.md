@@ -1,5 +1,6 @@
 # K8s cluster bootstrap and app install
 
+[![ArgoCD Status](https://argocd.apps.blah.cloud/api/badge?name=bootstrap-cluster&revision=true)](https://argocd.apps.blah.cloud/applications/bootstrap-cluster)
 ## Bitnami Sealed Secrets
 
 ### Install Sealed Secrets
@@ -59,14 +60,27 @@ make cleanup
 
 ## Todo
 
+### Apps
+
 * Add kube-prometheus
+* Add Renovate
 * Add OIDC provider
-* Add Istio
-* Add Tekton
-* Add KNative
-* Move from traefik to nginx + cert-manager
+* Move to kube-vip from metallb
+* ARM Builds of complex tools
+  * Add Istio (needs ARM builds - <https://github.com/istio/istio/issues/21094>)
+  * Add Tekton (needs ARM builds - <https://github.com/tektoncd/pipeline/issues/856>)
+  * Add KNative (needs ARM builds - <https://github.com/knative/serving/issues/8320>)
+  * All above rely on ko builds for ARM: <https://github.com/google/ko/pull/211>
+* Move from traefik to nginx + cert-manager for ingress and TLS
+
+### Organisational
+
 * Refactor namespaces
 * Refactor App hierarchy
 * Refactor Apps into Projects
 * Use sync waves
+
+### Security
+
+* Remove all internal un/passwords and keys and turn into sealed secrets
 * Make ArgoCD GitHub webhook authenticated
