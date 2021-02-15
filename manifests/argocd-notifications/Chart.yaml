@@ -5,5 +5,5 @@ type: application
 version: 1.0.9
 dependencies:
 - name: argocd-notifications
-  version: 1.0.9
+  version: 1.0.13
   repository: https://argoproj.github.io/argo-helm
