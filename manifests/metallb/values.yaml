@@ -8,7 +8,7 @@ metallb:
   speaker:
     image:
       repository: metallb/speaker
-      tag: v0.9.3
+      tag: v0.9.5
   configInline:
     address-pools:
     - name: k8s-ip-space
