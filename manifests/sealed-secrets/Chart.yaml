@@ -1,6 +1,6 @@
 apiVersion: v2
 name: sealed-secrets
-version: v0.0.1
+version: 0.0.1
 dependencies:
 - name: sealed-secrets
   version: 1.14.1-r1

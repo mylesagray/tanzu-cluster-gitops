@@ -63,11 +63,10 @@ make cleanup
 * Add OIDC provider
 * Add Istio
 * Add KNative
-* Add kube-prometheus as an ArgoCD Application
+* Add kube-prometheus
 * Move from traefik to nginx + cert-manager
 * Refactor namespaces
 * Refactor App hierarchy
 * Refactor Apps into Projects
-* Refactor helm charts into native ArgoCD Apps
 * Use sync waves
 * Make ArgoCD GitHub webhook authenticated
