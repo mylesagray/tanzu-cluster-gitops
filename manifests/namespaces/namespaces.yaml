@@ -8,6 +8,11 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: renovate
+---
+apiVersion: v1
+kind: Namespace
+metadata:
   name: logging
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
