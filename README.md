@@ -59,11 +59,11 @@ make cleanup
 
 ## Todo
 
-* Add Tekton
+* Add kube-prometheus
 * Add OIDC provider
 * Add Istio
+* Add Tekton
 * Add KNative
-* Add kube-prometheus
 * Move from traefik to nginx + cert-manager
 * Refactor namespaces
 * Refactor App hierarchy
