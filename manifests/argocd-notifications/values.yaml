@@ -9,6 +9,7 @@ argocd-notifications:
     service.slack: |
       username: ArgoCD
       token: $slack-token
+      signingSecret: $slack-signing-secret
     service.grafana: |
       apiUrl: $grafana-apiUrl
       apiKey: $grafana-apiKey
