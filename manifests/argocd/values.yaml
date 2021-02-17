@@ -12,6 +12,19 @@ argo-cd:
     image:
         repository: cyrilix/dex
         tag: v2.21
+  controller:
+    extraArgs:
+    - --repo-server-timeout-seconds
+    - "500"
+    - --status-processors
+    - "10"
+    - --operation-processors
+    - "5"
+  repoServer:
+    replicas: 3
+    env:
+      - name: "ARGOCD_EXEC_TIMEOUT"
+        value: "5m"
   server:
     extraArgs:
     - --insecure
