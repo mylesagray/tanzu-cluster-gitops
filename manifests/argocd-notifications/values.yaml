@@ -8,6 +8,9 @@ argocd-notifications:
   notifiers:
     service.slack: |
       username: ArgoCD
+    service.grafana: |
+      apiUrl: $grafana-apiUrl
+      apiKey: $grafana-apiKey
   subscriptions:
     - recipients:
       - slack:kubernetes
