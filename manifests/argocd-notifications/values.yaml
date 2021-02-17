@@ -1,5 +1,4 @@
 argocd-notifications:
-  logLevel: debug
   argocdUrl: https://argocd.apps.blah.cloud
   image:
     repository: mylesagray/argocd-notifications
@@ -22,37 +21,31 @@ argocd-notifications:
         send:
         - app-deployed
         when: app.status.operationState.phase in ['Succeeded'] and app.status.health.status == 'Healthy'
-        enabled: true
     trigger.on-health-degraded: |
       - description: Application has degraded
         send:
         - app-health-degraded
         when: app.status.health.status == 'Degraded'
-        enabled: true
     trigger.on-sync-failed: |
       - description: Application syncing has failed
         send:
         - app-sync-failed
         when: app.status.operationState.phase in ['Error', 'Failed']
-        enabled: true
     trigger.on-sync-running: |
       - description: Application is being synced
         send:
         - app-sync-running
         when: app.status.operationState.phase in ['Running']
-        enabled: true
     trigger.on-sync-status-unknown: |
       - description: Application status is 'Unknown'
         send:
         - app-sync-status-unknown
         when: app.status.sync.status == 'Unknown'
-        enabled: true
     trigger.on-sync-succeeded: |
       - description: Application syncing has succeeded
         send:
         - app-sync-succeeded
         when: app.status.operationState.phase in ['Succeeded']
-        enabled: true
   templates:
     template.app-deployed: |
       email:
