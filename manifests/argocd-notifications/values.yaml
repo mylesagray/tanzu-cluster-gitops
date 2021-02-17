@@ -5,6 +5,10 @@ argocd-notifications:
     tag: v1.0.1
   secret:
     create: false
+  notifiers:
+    service.slack: |
+      token: $slack-token
+      username: ArgoCD
   subscriptions:
     - recipients:
       - slack:kubernetes
