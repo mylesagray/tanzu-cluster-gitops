@@ -7,7 +7,6 @@ argocd-notifications:
     create: false
   notifiers:
     service.slack: |
-      token: $slack-token
       username: ArgoCD
   subscriptions:
     - recipients:
