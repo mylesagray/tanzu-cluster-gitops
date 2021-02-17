@@ -1,4 +1,5 @@
 argocd-notifications:
+  logLevel: debug
   argocdUrl: https://argocd.apps.blah.cloud
   image:
     repository: mylesagray/argocd-notifications
