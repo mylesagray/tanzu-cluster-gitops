@@ -1,8 +1,8 @@
 argocd-notifications:
   argocdUrl: https://argocd.apps.blah.cloud
   image:
-    repository: tomaszszuster/argocd-notifications
-    tag: v0.7.1
+    repository: mylesagray/argocd-notifications
+    tag: v1.0.1
   secret:
     create: false
   subscriptions:
@@ -33,5 +33,5 @@ argocd-notifications:
     slack:
       enabled: true
       image:
-        repository: tomaszszuster/argocd-notifications
-        tag: v0.7.1
+        repository: mylesagray/argocd-notifications
+        tag: v1.0.1
