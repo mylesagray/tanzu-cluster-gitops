@@ -66,6 +66,8 @@ make cleanup
 
 ### Apps
 
+* Build ARM versions of containers I depend on
+  * Do it scalably and open upstream PRs
 * Add kube-prometheus
 * Add Renovate
 * Add OIDC provider
