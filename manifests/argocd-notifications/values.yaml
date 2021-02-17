@@ -14,6 +14,12 @@ argocd-notifications:
   subscriptions:
     - recipients:
       - slack:kubernetes
+  bots:
+    slack:
+      enabled: true
+      image:
+        repository: mylesagray/argocd-notifications
+        tag: v1.0.1
   triggers:
     trigger.on-deployed: |
       - description: Application is synced and healthy. Triggered once per commit.
@@ -234,9 +240,3 @@ argocd-notifications:
         Sync operation details are available at: {{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true .
       slack:
         attachments: "[{\n  \"title\": \"{{ .app.metadata.name}}\",\n  \"title_link\":\"{{.context.argocdUrl}}/applications/{{.app.metadata.name}}\",\n  \"color\": \"#18be52\",\n  \"fields\": [\n  {\n    \"title\": \"Sync Status\",\n    \"value\": \"{{.app.status.sync.status}}\",\n    \"short\": true\n  },\n  {\n    \"title\": \"Repository\",\n    \"value\": \"{{.app.spec.source.repoURL}}\",\n    \"short\": true\n  }\n  {{range $index, $c := .app.status.conditions}}\n  {{if not $index}},{{end}}\n  {{if $index}},{{end}}\n  {\n    \"title\": \"{{$c.type}}\",\n    \"value\": \"{{$c.message}}\",\n    \"short\": true\n  }\n  {{end}}\n  ]\n}]    "
-  bots:
-    slack:
-      enabled: true
-      image:
-        repository: mylesagray/argocd-notifications
-        tag: v1.0.1
