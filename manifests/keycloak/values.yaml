@@ -1,4 +1,7 @@
 keycloak:
+#  auth:
+#    existingSecret:
+#      name: keycloak-secret
   image:
     repository: mylesagray/keycloak-arm
     tag: latest
