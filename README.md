@@ -13,12 +13,15 @@ helm upgrade --install sealed-secrets -n kube-system ./manifests/sealed-secrets 
 ### Seal secrets
 
 ```sh
-kubeseal --format=yaml < ~/Desktop/docker-creds.yaml > resources/secrets/docker-creds-sealed.yaml
-kubeseal --format=yaml < ~/Desktop/argocd-secret.yaml > resources/secrets/argocd-sealed-secret.yaml
-kubeseal --format=yaml < ~/Desktop/argocd-github-secret.yaml > resources/secrets/argocd-github-sealed-secret.yaml
-kubeseal --format=yaml < ~/Desktop/argocd-rak8s-secret.yaml > resources/secrets/argocd-rak8s-sealed-secret.yaml
-kubeseal --format=yaml < ~/Desktop/traefik-dnsprovider-config.yaml > resources/secrets/traefik-dnsprovider-config-sealed.yaml
-kubeseal --format=yaml < ~/Desktop/argocd-notifications-secret.yaml > resources/secrets/argocd-notifications-secret-sealed.yaml
+kubeseal --format=yaml < ~/Desktop/docker-creds.yaml > manifests/registry-creds/docker-creds-sealed.yaml
+kubeseal --format=yaml < ~/Desktop/argocd-secret.yaml > manifests/argocd/templates/argocd-sealed-secret.yaml
+kubeseal --format=yaml < ~/Desktop/argocd-github-secret.yaml > manifests/argocd/templates/argocd-github-sealed-secret.yaml
+kubeseal --format=yaml < ~/Desktop/argocd-rak8s-secret.yaml > manifests/argocd/templates/argocd-rak8s-sealed-secret.yaml
+kubeseal --format=yaml < ~/Desktop/traefik-dnsprovider-config.yaml > manifests/traefik/templates/traefik-dnsprovider-config-sealed.yaml
+kubeseal --format=yaml < ~/Desktop/argocd-notifications-secret.yaml > manifests/argocd-notifications/templates/argocd-notifications-secret-sealed.yaml
+kubeseal --format=yaml < ~/Desktop/renovate-secret.yaml > manifests/renovate/templates/renovate-sealed-secret.yaml
+kubeseal --format=yaml < ~/Desktop/keycloak-secret.yaml > manifests/keycloak/templates/keycloak-secret-sealed.yaml
+kubeseal --format=yaml < ~/Desktop/keycloak-postgres-secret.yaml > manifests/keycloak/templates/keycloak-postgres-secret-sealed.yaml
 ```
 
 ### Backup seal key
