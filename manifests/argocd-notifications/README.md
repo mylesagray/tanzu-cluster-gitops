@@ -57,7 +57,7 @@ docker buildx build --platform linux/amd64,linux/arm64,linux/arm -t $IMAGEREPO/a
 * <https://github.com/tonistiigi/binfmt>
 * <https://github.com/docker/buildx/issues/342#issuecomment-681621872>
 
-## (Optional) Build containers with buildx through K8s on multi-arch cluster (fast, requires specific nodes)
+## (Optional) Build containers with buildx through K8s on multi-arch cluster (fast, requires arch-specific nodes)
 
 ```sh
 # Specify container image repo
