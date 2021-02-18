@@ -1,0 +1,45 @@
+# Run binfmt setup on any new node
+# https://kubernetes.io/docs/concepts/workloads/controllers/daemonset
+# https://github.com/docker/buildx/issues/342#issuecomment-680715762
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: binfmt
+  namespace: qemu-binfmt
+  labels:
+    app: binfmt-setup
+spec:
+  selector:
+    matchLabels:
+      name: binfmt
+  # https://kubernetes.io/docs/concepts/workloads/pods/#pod-templates
+  template:
+    metadata:
+      labels:
+        name: binfmt
+    spec:
+      tolerations:
+        # Have the daemonset runnable on master nodes
+        # NOTE: Remove it if your masters can't run pods
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+      initContainers:
+        - name: binfmt
+          image: tonistiigi/binfmt
+          # command: []
+          args: ["--install", "all"]
+          # Run the container with the privileged flag
+          # https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+          # https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#securitycontext-v1-core
+          securityContext:
+            privileged: true
+      containers:
+        - name: pause
+          image: gcr.io/google_containers/pause
+          resources:
+            limits:
+              cpu: 50m
+              memory: 50Mi
+            requests:
+              cpu: 50m
+              memory: 50Mi
