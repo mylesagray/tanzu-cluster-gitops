@@ -38,12 +38,9 @@ docker buildx build --platform linux/amd64,linux/arm64 -t $IMAGEREPO/argocd-noti
 # Specify container image repo
 export IMAGEREPO=mylesagray
 # Initialise buildx on K8s cluster (uses current context in ~/.kube/config)
-docker buildx create    \
-  --driver kubernetes     \
-  --driver-opt replicas=3 \
-  --name=rak8s
+docker buildx create --use --name=buildkit --platform=linux/amd64 --node=buildkit-amd64 --driver=kubernetes --driver-opt="namespace=buildkit,nodeselector=kubernetes.io/arch=amd64,replicas=3"
 # Add ARM64 build support
-docker buildx create --append --name=buildkit --platform=linux/arm64 --node=buildkit-arm64 --driver=kubernetes --driver-opt="namespace=buildkit,nodeselector=kubernetes.io/arch=arm64"
+docker buildx create --append --name=buildkit --platform=linux/arm64 --node=buildkit-arm64 --driver=kubernetes --driver-opt="namespace=buildkit,nodeselector=kubernetes.io/arch=arm64,replicas=3"
 # Create buildx pods on K8s cluster
 docker buildx inspect --bootstrap
 # Run the build (note: this only builds for arm64 in this example)
