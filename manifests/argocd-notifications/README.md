@@ -54,6 +54,8 @@ docker buildx build --platform linux/amd64,linux/arm64,linux/arm -t $IMAGEREPO/a
 * <https://github.com/docker/buildx/issues/516>
 * <https://github.com/tektoncd/catalog/tree/master/task/buildkit-daemonless/0.1>
 * <https://github.com/moby/buildkit/tree/master/examples/kubernetes>
+* <https://github.com/tonistiigi/binfmt>
+* <https://github.com/docker/buildx/issues/342#issuecomment-681621872>
 
 ## (Optional) Build containers with buildx through K8s on multi-arch cluster (fast, requires specific nodes)
 
