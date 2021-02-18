@@ -85,6 +85,7 @@ make cleanup
 * Refactor App hierarchy
 * Refactor Apps into Projects
 * Use sync waves
+* Deploy from tags/branches rather than master
 
 ### Security
 
