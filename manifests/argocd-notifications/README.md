@@ -32,11 +32,13 @@ docker buildx build --platform linux/amd64,linux/arm64 -t $IMAGEREPO/argocd-noti
 
 * <https://medium.com/nttlabs/buildx-multiarch-2c6c2df00ca2>
 
-## (Optional) Build containers with buildx through K8s
+## (Optional) Build containers with buildx through K8s on multi-arch cluster
 
 ```sh
 # Specify container image repo
 export IMAGEREPO=mylesagray
+# Create K8s ns
+kubectl create ns buildkit
 # Initialise buildx on K8s cluster (uses current context in ~/.kube/config)
 docker buildx create --use --name=buildkit --platform=linux/amd64 --node=buildkit-amd64 --driver=kubernetes --driver-opt="namespace=buildkit,nodeselector=kubernetes.io/arch=amd64,replicas=3"
 # Add ARM64 build support
