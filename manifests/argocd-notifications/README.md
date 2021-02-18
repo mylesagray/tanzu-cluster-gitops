@@ -53,6 +53,8 @@ docker buildx build --platform linux/arm64 -t $IMAGEREPO/argocd-notifications:$(
 
 * <https://medium.com/nttlabs/buildx-kubernetes-ad0fe59b0c64>
 * <https://github.com/docker/buildx/issues/516>
+* <https://github.com/tektoncd/catalog/tree/master/task/buildkit-daemonless/0.1>
+* <https://github.com/moby/buildkit/tree/master/examples/kubernetes>
 
 ## (Optional) Build containers with buildx through K8s on multi-arch cluster
 
@@ -75,3 +77,5 @@ docker buildx build --platform linux/arm64 -t $IMAGEREPO/argocd-notifications:$(
 
 * <https://medium.com/nttlabs/buildx-kubernetes-ad0fe59b0c64>
 * <https://github.com/docker/buildx/issues/516>
+* <https://github.com/tektoncd/catalog/tree/master/task/buildkit-daemonless/0.1>
+* <https://github.com/moby/buildkit/tree/master/examples/kubernetes>
