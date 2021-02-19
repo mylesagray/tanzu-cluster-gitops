@@ -56,6 +56,9 @@ docker buildx build --platform linux/amd64,linux/arm64,linux/arm -t $IMAGEREPO/a
 * <https://github.com/moby/buildkit/tree/master/examples/kubernetes>
 * <https://github.com/tonistiigi/binfmt>
 * <https://github.com/docker/buildx/issues/342#issuecomment-681621872>
+* <https://www.docker.com/blog/containerize-your-go-developer-environment-part-1/>
+* <https://github.com/mylesagray/github-actions-tests>
+* <https://github.com/docker/buildx/issues/516>
 
 ## (Optional) Build containers with buildx through K8s on multi-arch cluster (fast, requires arch-specific nodes)
 
