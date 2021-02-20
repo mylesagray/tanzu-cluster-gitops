@@ -4,14 +4,20 @@ argo-cd:
       createSecret: false
   global:
     image:
-        repository: alinbalutoiu/argocd
-        tag: v1.8.4
+      repository: alinbalutoiu/argocd
+      tag: v1.8.4
     imagePullSecrets: 
-        - name: docker-creds
+      - name: docker-creds
   dex:
     image:
-        repository: cyrilix/dex
-        tag: v2.21
+      repository: cyrilix/dex
+      tag: v2.21
+    env:
+      - name: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: argo-workflows-sso
+            key: client-secret
   controller:
     extraArgs:
     - --repo-server-timeout-seconds
@@ -54,6 +60,12 @@ argo-cd:
               clientSecret: $dex.github.clientSecret
               orgs:
               - name: blahcloud
+          staticClients:
+           - id: argo-workflows-sso
+             name: Argo Workflow
+             redirectURIs:
+               - https://argo-workflows.apps.blah.cloud/oauth2/callback
+             secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
         resource.customizations: |
           admissionregistration.k8s.io/MutatingWebhookConfiguration:
             ignoreDifferences: |
