@@ -71,6 +71,7 @@ make cleanup
     * Argocd-notifications PR: <https://github.com/argoproj-labs/argocd-notifications/pull/184>
 * Add Argo Workflows
 * Add Argo Events
+* Add Argo Rollouts
 * Investigate Argo Operator
 * Add kube-prometheus
 * Add Renovate self-hosted
