@@ -1,0 +1,24 @@
+argo:
+  workflow:
+    serviceAccount:
+      create: true
+    rbac:
+      create: true
+  controller:
+    metricsConfig:
+      enabled: true
+    telemetryConfig:
+      enabled: true
+    serviceMonitor:
+      enabled: true
+  server:
+    ingress:
+      enabled: true
+  useDefaultArtifactRepo: true
+  artifactRepository:
+    archiveLogs: true
+  minio:
+    install: true
+    defaultBucket:
+      enabled: true
+      name: argo-artifacts

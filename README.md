@@ -68,8 +68,12 @@ make cleanup
 
 * Build ARM versions of containers I depend on
   * Do it scalably and open upstream PRs
+    * Argocd-notifications PR: <https://github.com/argoproj-labs/argocd-notifications/pull/184>
+* Add Argo Workflows
+* Add Argo Events
+* Investigate Argo Operator
 * Add kube-prometheus
-* Add Renovate
+* Add Renovate self-hosted
 * Add OIDC provider
 * Move to kube-vip from metallb
 * ARM Builds of complex tools
