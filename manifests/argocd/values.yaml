@@ -10,7 +10,6 @@ argo-cd:
       - name: docker-creds
   dex:
     image:
-      repository: cyrilix/dex
       tag: v2.23.0
     metrics:
       enabled: true
