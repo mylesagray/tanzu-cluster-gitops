@@ -9,6 +9,10 @@ argo-cd:
     imagePullSecrets: 
       - name: docker-creds
   dex:
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
     env:
       - name: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
         valueFrom:
@@ -57,12 +61,6 @@ argo-cd:
               clientSecret: $dex.github.clientSecret
               orgs:
               - name: blahcloud
-          staticClients:
-           - id: argo-workflows-sso
-             name: Argo Workflow
-             redirectURIs:
-               - https://argo-workflows.apps.blah.cloud/oauth2/callback
-             secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
         resource.customizations: |
           admissionregistration.k8s.io/MutatingWebhookConfiguration:
             ignoreDifferences: |
