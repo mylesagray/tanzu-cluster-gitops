@@ -39,3 +39,10 @@ argo:
       - effect: NoSchedule
         key: node-role.kubernetes.io/master
     existingSecret: argo-workflows-minio
+    ingress:
+      enabled: true
+      hosts:
+      - minio.apps.blah.cloud
+    resources:
+      requests:
+        memory: 2Gi
