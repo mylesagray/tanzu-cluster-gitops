@@ -56,7 +56,7 @@ argo-cd:
         application.instanceLabelKey: argocd.argoproj.io/instance
         dex.config: |
           logger:
-            level: debug
+            level: "debug"
           connectors:
           - type: github
             id: github
@@ -67,11 +67,11 @@ argo-cd:
               orgs:
               - name: blahcloud
           staticClients:
-          - id: argo-workflows-sso
-            name: Argo Workflow
-            redirectURIs:
-            - https://argo-workflows.apps.blah.cloud/oauth2/callback
-            secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
+            - id: argo-workflows-sso
+              name: 'Argo Workflow'
+              redirectURIs:
+                - https://argo-workflows.apps.blah.cloud/oauth2/callback
+              secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
         resource.customizations: |
           admissionregistration.k8s.io/MutatingWebhookConfiguration:
             ignoreDifferences: |
