@@ -67,7 +67,7 @@ argo-cd:
               orgs:
               - name: blahcloud
           staticClients:
-            - id: argo-workflows-sso
+            - id: argo-workflow
               name: 'Argo Workflow'
               redirectURIs:
                 - https://argo-workflows.apps.blah.cloud/oauth2/callback
