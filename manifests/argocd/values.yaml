@@ -9,6 +9,9 @@ argo-cd:
     imagePullSecrets: 
       - name: docker-creds
   dex:
+    image:
+      repository: cyrilix/dex
+      tag: v2.21.0
     metrics:
       enabled: true
       serviceMonitor:
