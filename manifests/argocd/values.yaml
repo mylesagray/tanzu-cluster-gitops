@@ -10,7 +10,7 @@ argo-cd:
       - name: docker-creds
   dex:
     image:
-      tag: v2.23.0
+      tag: v2.26.0
     metrics:
       enabled: true
       serviceMonitor:
