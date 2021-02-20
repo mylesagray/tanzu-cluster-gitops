@@ -52,6 +52,8 @@ argo-cd:
         url: https://argocd.apps.blah.cloud
         application.instanceLabelKey: argocd.argoproj.io/instance
         dex.config: |
+          logger:
+            level: debug
           connectors:
           - type: github
             id: github
