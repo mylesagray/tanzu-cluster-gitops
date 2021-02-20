@@ -9,9 +9,6 @@ argo-cd:
     imagePullSecrets: 
       - name: docker-creds
   dex:
-    image:
-      repository: dexidp/dex
-      tag: v2.27.0
     env:
       - name: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
         valueFrom:
