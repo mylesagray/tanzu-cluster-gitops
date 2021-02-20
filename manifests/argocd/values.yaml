@@ -10,6 +10,7 @@ argo-cd:
       - name: docker-creds
   dex:
     image:
+      repository: dexidp/dex
       tag: v2.27.0
     metrics:
       enabled: true
