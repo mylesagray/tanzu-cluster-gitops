@@ -70,7 +70,7 @@ argo-cd:
           - id: argo-workflows-sso
             name: Argo Workflow
             redirectURIs:
-              - https://argo-workflows.apps.blah.cloud/oauth2/callback
+            - https://argo-workflows.apps.blah.cloud/oauth2/callback
             secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
         resource.customizations: |
           admissionregistration.k8s.io/MutatingWebhookConfiguration:
