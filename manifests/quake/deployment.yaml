@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quake
+  namespace: quake
+spec:
+  selector:
+    matchLabels:
+      run: quake
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: quake
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '8080'
+    spec:
+      containers:
+      - command:
+        - q3
+        - server
+        - --config=/config/config.yaml
+        - --content-server=http://127.0.0.1:9090
+        - --agree-eula
+        image: docker.io/criticalstack/quake:latest
+        name: server
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 5
+        volumeMounts:
+        - name: quake3-server-config
+          mountPath: /config
+        - name: quake3-content
+          mountPath: /assets
+      - command:
+        - q3
+        - content
+        - --seed-content-url=http://content.quakejs.com
+        image: docker.io/criticalstack/quake:latest
+        name: content-server
+        ports:
+        - containerPort: 9090
+        volumeMounts:
+        - name: quake3-content
+          mountPath: /assets
+      volumes:
+        - name: quake3-server-config
+          configMap:
+            name: quake3-server-config
+        - name: quake3-content
+          emptyDir: {}

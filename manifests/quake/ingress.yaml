@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: quake
+  namespace: quake
+spec:
+  rules:
+  - host: quake.apps.blah.cloud
+    http:
+      paths:
+      - backend:
+          service:
+            name: quake
+            port:
+              number: 8080
