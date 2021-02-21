@@ -13,3 +13,5 @@ spec:
             name: quake
             port:
               number: 8080
+        path: /
+        pathType: ImplementationSpecific
