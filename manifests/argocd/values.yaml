@@ -133,3 +133,17 @@ argo-cd:
         automated:
           prune: true
           selfHeal: true
+    - name: boostrap-quake
+      namespace: argocd
+      project: default
+      source:
+        repoURL: https://github.com/mylesagray/home-cluster-gitops.git
+        targetRevision: HEAD
+        path: apps/quake
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: quake
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
