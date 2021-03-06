@@ -4,3 +4,5 @@ sealed-secrets:
     create: true
   serviceMonitor:
     create: true
+  commandArgs:
+  - --update-status
