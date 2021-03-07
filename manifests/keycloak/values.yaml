@@ -1,14 +1,14 @@
 keycloak:
+  auth:
+    existingSecret:
+      name: keycloak
   image:
     repository: mylesagray/keycloak-arm
     tag: latest
   ingress:
     enabled: true
     hostname: keycloak.apps.blah.cloud
-  metrics:
-    enabled: true
-    serviceMonitor:
-      enabled: true
+  extraStartupArgs: "-Dkeycloak.frontendUrl=https://keycloak.apps.blah.cloud/auth"
   postgresql:
     image:
       repository: postgres
