@@ -30,6 +30,11 @@ argo:
   useDefaultArtifactRepo: true
   artifactRepository:
     archiveLogs: true
+    s3:
+      accessKeySecret:
+        name: argo-workflows-minio
+      secretKeySecret:
+        name: argo-workflows-minio
   minio:
     install: true
     defaultBucket:
