@@ -1,6 +1,7 @@
 keycloak:
   auth:
-    adminPassword: "password"
+    existingSecret:
+      name: keycloak
   proxyAddressForwarding: true
   image:
     repository: mylesagray/keycloak-arm
