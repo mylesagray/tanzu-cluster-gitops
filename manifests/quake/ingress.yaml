@@ -5,7 +5,7 @@ metadata:
   namespace: quake
 spec:
   rules:
-  - host: quake-dev.apps.blah.cloud
+  - host: quake.apps.blah.cloud
     http:
       paths:
       - backend:
