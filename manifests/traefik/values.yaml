@@ -11,7 +11,7 @@ traefik:
         enabled: true
   dashboard:
     enabled: true
-    domain: "traefik.apps.blah.cloud"
+    domain: "traefik.tanzu.blah.cloud"
   ssl:
     enabled: true
     enforced: true

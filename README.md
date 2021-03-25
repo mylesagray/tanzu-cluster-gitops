@@ -1,6 +1,6 @@
 # K8s cluster bootstrap and app install
 
-[![ArgoCD Status](https://argocd.apps.blah.cloud/api/badge?name=bootstrap-cluster&revision=true)](https://argocd.apps.blah.cloud/applications/bootstrap-cluster)
+[![ArgoCD Status](https://argocd.tanzu.blah.cloud/api/badge?name=bootstrap-cluster&revision=true)](https://argocd.tanzu.blah.cloud/applications/bootstrap-cluster)
 
 ## Bitnami Sealed Secrets
 
@@ -52,7 +52,7 @@ make check-argocd-ready
 ## Use
 
 ```sh
-argocd login argocd.apps.blah.cloud --sso --grpc-web
+argocd login argocd.tanzu.blah.cloud --sso --grpc-web
 #login with GitHub account or admin password from above
 argocd account update-password
 argocd app list
