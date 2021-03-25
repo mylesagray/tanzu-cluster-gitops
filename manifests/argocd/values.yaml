@@ -7,7 +7,7 @@ argo-cd:
       - name: docker-creds
   dex:
     metrics:
-      enabled: false
+      enabled: true
       serviceMonitor:
         enabled: false
     env:
