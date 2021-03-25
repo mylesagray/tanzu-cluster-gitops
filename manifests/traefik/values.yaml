@@ -25,6 +25,7 @@ traefik:
     onHostRule: true
     staging: false
     logging: true
+    persistence: false
     delayBeforeCheck: 0
     resolvers:
     - abby.ns.cloudflare.com
