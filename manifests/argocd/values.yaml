@@ -43,7 +43,7 @@ argo-cd:
         - argocd.tanzu.blah.cloud
         https: false
     config:
-        admin.enabled: 'false'
+        admin.enabled: 'true'
         statusbadge.enabled: 'true'
         users.anonymous.enabled: 'true'
         url: https://argocd.tanzu.blah.cloud
