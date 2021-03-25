@@ -3,19 +3,13 @@ argo-cd:
     secret:
       createSecret: false
   global:
-    image:
-      repository: alinbalutoiu/argocd
-      tag: v1.8.7
     imagePullSecrets: 
       - name: docker-creds
   dex:
-    image:
-      repository: dexidp/dex
-      tag: v2.28.1
     metrics:
-      enabled: true
+      enabled: false
       serviceMonitor:
-        enabled: true
+        enabled: false
     env:
       - name: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
         valueFrom:
@@ -41,18 +35,18 @@ argo-cd:
     ingress:
         enabled: true
         hosts:
-        - argocd.apps.blah.cloud
+        - argocd.tanzu.blah.cloud
         https: false
     ingressGrpc:
         enabled: true
         hosts:
-        - argocd.apps.blah.cloud
+        - argocd.tanzu.blah.cloud
         https: false
     config:
         admin.enabled: 'false'
         statusbadge.enabled: 'true'
         users.anonymous.enabled: 'true'
-        url: https://argocd.apps.blah.cloud
+        url: https://argocd.tanzu.blah.cloud
         application.instanceLabelKey: argocd.argoproj.io/instance
         dex.config: |
           logger:
@@ -70,7 +64,7 @@ argo-cd:
             - id: argo-workflow
               name: 'Argo Workflow'
               redirectURIs:
-                - https://argo-workflows.apps.blah.cloud/oauth2/callback
+                - https://argo-workflows.tanzu.blah.cloud/oauth2/callback
               secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
         resource.customizations: |
           admissionregistration.k8s.io/MutatingWebhookConfiguration:
@@ -85,7 +79,7 @@ argo-cd:
             clusters:
             - '*'
         repositories: |
-          - url: https://github.com/mylesagray/home-cluster-gitops.git
+          - url: https://github.com/mylesagray/tanzu-cluster-gitops.git
           - type: helm
             url: https://argoproj.github.io/argo-helm
             name: argo
@@ -109,7 +103,7 @@ argo-cd:
       namespace: argocd
       project: default
       source:
-        repoURL: https://github.com/mylesagray/home-cluster-gitops.git
+        repoURL: https://github.com/mylesagray/tanzu-cluster-gitops.git
         targetRevision: HEAD
         path: apps/infra
       destination:
@@ -123,7 +117,7 @@ argo-cd:
       namespace: argocd
       project: default
       source:
-        repoURL: https://github.com/mylesagray/home-cluster-gitops.git
+        repoURL: https://github.com/mylesagray/tanzu-cluster-gitops.git
         targetRevision: HEAD
         path: apps/cheese
       destination:
@@ -137,7 +131,7 @@ argo-cd:
       namespace: argocd
       project: default
       source:
-        repoURL: https://github.com/mylesagray/home-cluster-gitops.git
+        repoURL: https://github.com/mylesagray/tanzu-cluster-gitops.git
         targetRevision: HEAD
         path: apps/quake
       destination:

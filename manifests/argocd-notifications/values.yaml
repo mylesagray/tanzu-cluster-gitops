@@ -1,5 +1,5 @@
 argocd-notifications:
-  argocdUrl: https://argocd.apps.blah.cloud
+  argocdUrl: https://argocd.tanzu.blah.cloud
   image:
     repository: mylesagray/argocd-notifications
     tag: v1.0.2

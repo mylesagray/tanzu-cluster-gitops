@@ -1,8 +1,8 @@
 sealed-secrets:
   fullnameOverride: sealed-secrets-controller
   dashboards:
-    create: true
+    create: false
   serviceMonitor:
-    create: true
+    create: false
   commandArgs:
   - --update-status
