@@ -19,7 +19,7 @@ argo:
     extraArgs:
       - --auth-mode=sso
     sso:
-      issuer: https://argocd.tanzu.blah.cloud/api/dex
+      issuer: https://argocd/api/dex
       clientId:
         name: argo-workflows-sso
         key: client-id
