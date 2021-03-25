@@ -10,7 +10,7 @@ renovate:
       {
         "platform": "github",
         "repositories": [
-          "mylesagray/home-cluster-gitops"
+          "mylesagray/tanzu-cluster-gitops"
         ]
       }
   existingSecret: "renovate-secrets"

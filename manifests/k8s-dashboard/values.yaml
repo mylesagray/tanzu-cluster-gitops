@@ -9,15 +9,13 @@ kubernetes-dashboard:
     - k8s.tanzu.blah.cloud
   metrics-server:
     enabled: true
-    image:
-      repository: k8s.gcr.io/metrics-server-arm
     args:
       - --kubelet-insecure-tls
       - --kubelet-preferred-address-types=InternalIP
   image:
     tag: v2.1.0
   settings: 
-    clusterName: "rak8s"
+    clusterName: "TKC-1"
     ## Max number of items that can be displayed on each list page
     # itemsPerPage: 10
     ## Number of seconds between every auto-refresh of logs

@@ -1,7 +1,7 @@
 spec:
   project: ci
   source:
-    repoURL: 'https://github.com/mylesagray/home-cluster-gitops.git'
+    repoURL: 'https://github.com/mylesagray/tanzu-cluster-gitops.git'
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
