@@ -60,8 +60,6 @@ argo-cd:
               clientSecret: $dex.github.clientSecret
               orgs:
               - name: blahcloud
-                teams:
-                - k8s
           staticClients:
             - id: argo-workflow
               name: 'Argo Workflow'
