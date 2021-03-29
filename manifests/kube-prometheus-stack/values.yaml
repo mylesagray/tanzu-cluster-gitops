@@ -4,7 +4,30 @@ kube-prometheus-stack:
       enabled: true
       hosts:
       - grafana.tanzu.blah.cloud
+    persistence:
+      type: pvc
+      enabled: true
+      accessModes:
+        - ReadWriteOnce
+      size: 10Gi
+    grafana.ini:
+      server:
+        root_url: https://grafana.tanzu.blah.cloud
+      auth.generic_oauth:
+        enabled: true
+        name: "SSO"
+        client_id: "grafana.tanzu.blah.cloud"
+        client_secret: "<keep-it-secret-keep-it-safe>"
+        auth_url: "https://sso.tanzu.blah.cloud/auth/realms/development/protocol/openid-connect/auth"
+        token_url: "https://sso.tanzu.blah.cloud/auth/realms/development/protocol/openid-connect/token"
+        api_url: "https://sso.tanzu.blah.cloud/auth/realms/development/protocol/openid-connect/userinfo"
+        allow_sign_up: true
+        role_attribute_path: "contains(roles[*], 'admin') && 'Admin' || contains(roles[*], 'editor') && 'Editor' || 'Viewer'"
+        email_attribute_name: email
+        scopes: "openid profile email"
   prometheus:
+    thanosService:
+      enabled: true
     ingress:
       enabled: true
       hosts:
@@ -13,6 +36,14 @@ kube-prometheus-stack:
       enabled: true
       hosts:
       - thanos.tanzu.blah.cloud
+    prometheusSpec:
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            accessModes: [ "ReadWriteOnce" ]
+            resources:
+              requests:
+                storage: 50Gi
   alertmanager:
     ingress:
       enabled: true
