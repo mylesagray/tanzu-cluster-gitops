@@ -15,12 +15,14 @@ kube-prometheus-stack:
         root_url: https://grafana.tanzu.blah.cloud
       auth.generic_oauth:
         enabled: true
-        name: "Keycloak"
+        name: "SSO"
         client_id: "grafana.tanzu.blah.cloud"
         client_secret: "keep-it-secret-keep-it-safe"
         auth_url: "https://sso.tanzu.blah.cloud/auth/realms/development/protocol/openid-connect/auth"
         token_url: "https://sso.tanzu.blah.cloud/auth/realms/development/protocol/openid-connect/token"
         api_url: "https://sso.tanzu.blah.cloud/auth/realms/development/protocol/openid-connect/userinfo"
+        allow_sign_up: true
+        email_attribute_name: email
   prometheus:
     thanosService:
       enabled: true
