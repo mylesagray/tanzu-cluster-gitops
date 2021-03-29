@@ -42,7 +42,7 @@ RUN CGO_ENABLED=1 GOOS=linux go install -a --ldflags '-linkmode external -extldf
 # STAGE 2: build jsonnet and download ksonnet
 ##############################################
 
-FROM alpine:3.6
+FROM alpine:3.13
 ENV KUBECFG_VERSION v0.5.0
 ENV JSONNET_VERSION v0.9.4
 
