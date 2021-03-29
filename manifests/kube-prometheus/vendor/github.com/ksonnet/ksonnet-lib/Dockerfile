@@ -29,7 +29,7 @@
 # STAGE 1: build kubecfg
 ##############################################
 
-FROM golang:1.8 as kubecfg-builder
+FROM golang:1.16 as kubecfg-builder
 # Keep this in sync with the corresponding ENV in stage 2
 ENV KUBECFG_VERSION v0.5.0
 
