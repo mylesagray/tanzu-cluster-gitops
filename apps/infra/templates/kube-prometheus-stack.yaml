@@ -25,3 +25,7 @@ spec:
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
+  ignoreDifferences:
+    - kind: ServiceAccounts
+      jsonPointers:
+        - /imagePullSecrets
