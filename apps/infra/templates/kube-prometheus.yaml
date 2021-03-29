@@ -8,14 +8,14 @@ metadata:
 spec:
   project: {{ .Values.spec.project }}
   source:
-    repoURL: 'https://github.com/prometheus-operator/kube-prometheus.git'
-    targetRevision: release-0.7
-    path: examples/continuous-delivery/argocd/kube-prometheus
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+    path: manifests/kube-prometheus
     directory:
       recurse: true
       jsonnet:
         libs:
-          - vendored
+          - manifests/kube-prometheus/vendor
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: monitoring
