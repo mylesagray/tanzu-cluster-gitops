@@ -1,0 +1,20 @@
+kube-prometheus-stack:
+  grafana:
+    ingress:
+      enabled: true
+      hosts:
+      - grafana.tanzu.blah.cloud
+  prometheus:
+    ingress:
+      enabled: true
+      hosts:
+      - prometheus.tanzu.blah.cloud
+    thanosIngress:
+      enabled: true
+      hosts:
+      - thanos.tanzu.blah.cloud
+  alertmanager:
+    ingress:
+      enabled: true
+      hosts:
+      - alertmanager.tanzu.blah.cloud
