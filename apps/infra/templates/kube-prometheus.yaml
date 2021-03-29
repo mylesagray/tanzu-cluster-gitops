@@ -8,7 +8,7 @@ metadata:
 spec:
   project: {{ .Values.spec.project }}
   source:
-    repoURL: https://github.com:prometheus-operator/kube-prometheus.git
+    repoURL: 'https://github.com/prometheus-operator/kube-prometheus.git'
     targetRevision: release-0.7
     path: examples/continuous-delivery/argocd/kube-prometheus
     directory:
