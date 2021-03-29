@@ -26,6 +26,7 @@ spec:
     syncOptions:
     - CreateNamespace=true
   ignoreDifferences:
-    - kind: ServiceAccounts
-      jsonPointers:
-        - /imagePullSecrets
+  - kind: ServiceAccount
+    jsonPointers:
+    - /imagePullSecrets
+    - /secrets
