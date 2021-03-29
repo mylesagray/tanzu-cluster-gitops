@@ -12,7 +12,7 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     path: manifests/kube-prometheus
     directory:
-      recurse: false
+      recurse: true
       jsonnet:
         libs:
           - manifests/kube-prometheus/vendor
