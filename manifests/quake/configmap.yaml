@@ -10,7 +10,7 @@ data:
     bot:
       minPlayers: 3
     game:
-      motd: "Welcome to Critical Stack"
+      motd: "Welcome to Quake on Tanzu"
       type: FreeForAll
       forceRespawn: false
       inactivity: 10m
