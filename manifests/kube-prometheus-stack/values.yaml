@@ -36,6 +36,7 @@ kube-prometheus-stack:
       hosts:
       - thanos.tanzu.blah.cloud
     prometheusSpec:
+      secrets: ['kube-etcd-client-certs']
       storageSpec:
         volumeClaimTemplate:
           spec:
@@ -43,6 +44,26 @@ kube-prometheus-stack:
             resources:
               requests:
                 storage: 50Gi
+  kubeEtcd:
+    serviceMonitor:
+      scheme: https
+      caFile: /etc/prometheus/secrets/kube-etcd-client-certs/etcd-client-ca.crt
+      certFile: /etc/prometheus/secrets/kube-etcd-client-certs/etcd-client.crt
+      keyFile: /etc/prometheus/secrets/kube-etcd-client-certs/etcd-client.key
+  kubeScheduler:
+    service:
+      port: 10259
+      targetPort: 10259
+    serviceMonitor:
+      https: true
+      insecureSkipVerify: true
+  kubeControllerManager:
+    service:
+      port: 10257
+      targetPort: 10257
+    serviceMonitor:
+      https: true
+      insecureSkipVerify: true
   alertmanager:
     ingress:
       enabled: true
