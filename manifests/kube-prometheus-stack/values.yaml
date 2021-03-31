@@ -44,6 +44,8 @@ kube-prometheus-stack:
             resources:
               requests:
                 storage: 50Gi
+      serviceMonitorSelectorNilUsesHelmValues: false
+      podMonitorSelectorNilUsesHelmValues: false
   kubeEtcd:
     serviceMonitor:
       scheme: https

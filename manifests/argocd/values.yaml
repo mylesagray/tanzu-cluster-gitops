@@ -9,7 +9,7 @@ argo-cd:
     metrics:
       enabled: true
       serviceMonitor:
-        enabled: false
+        enabled: true
     env:
       - name: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
         valueFrom:
@@ -43,7 +43,7 @@ argo-cd:
         - argocd.tanzu.blah.cloud
         https: false
     config:
-        admin.enabled: 'true'
+        admin.enabled: 'false'
         statusbadge.enabled: 'true'
         users.anonymous.enabled: 'true'
         url: https://argocd.tanzu.blah.cloud
