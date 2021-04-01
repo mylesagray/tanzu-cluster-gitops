@@ -16,3 +16,22 @@ spec:
       volumeMounts:
         - mountPath: "/usr/share/nginx/html"
           name: external-nfs-storage
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: external-nfs-pod-2
+spec:
+  volumes:
+    - name: external-nfs-storage
+      persistentVolumeClaim:
+        claimName: external-nfs-pvc
+  containers:
+    - name: external-nfs-container
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: external-nfs-storage
