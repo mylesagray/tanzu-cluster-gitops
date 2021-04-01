@@ -1,0 +1,9 @@
+nfs-subdir-external-provisioner:
+  nfs:
+    server: vsan-fs01.shed.net
+    path: /vsanfs/K8s
+  storageClass:
+    name: nfs-external
+    accessModes: ReadWriteMany
+  podSecurityPolicy:
+    enabled: true
