@@ -68,19 +68,14 @@ make cleanup
 
 ### Apps
 
-* Build ARM versions of containers I depend on
-  * Do it scalably and open upstream PRs
+* Add Reloader
 * Add Argo Events
 * Add Argo Rollouts
 * Investigate Argo Operator
 * Add Renovate self-hosted
-* Add OIDC provider
-* Move to kube-vip from metallb
-* ARM Builds of complex tools
-  * Add Istio (needs ARM builds - <https://github.com/istio/istio/issues/21094>)
-  * Add Tekton (needs ARM builds - <https://github.com/tektoncd/pipeline/issues/856>)
-  * Add KNative (needs ARM builds - <https://github.com/knative/serving/issues/8320>)
-  * All above rely on ko builds for ARM: <https://github.com/google/ko/pull/211>
+* Add Istio
+* Add Tekton
+* Add KNative
 * Move from traefik to nginx + cert-manager for ingress and TLS
 
 ### Organisational
