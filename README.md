@@ -2,6 +2,24 @@
 
 [![ArgoCD Status](https://argocd.tanzu.blah.cloud/api/badge?name=bootstrap-cluster&revision=true)](https://argocd.tanzu.blah.cloud/applications/bootstrap-cluster)
 
+## Apply PSP
+
+```sh
+kubectl create clusterrolebinding default-tkg-admin-privileged-binding --clusterrole=psp:vmware-system-privileged --group=system:authenticated
+```
+
+## Apply Reg-cred syncer
+
+```sh
+kubectl apply -f manifests/registry-creds
+```
+
+### Apply reg cred secret
+
+```sh
+kubectl apply -f ~/Desktop/docker-creds.yaml
+```
+
 ## Bitnami Sealed Secrets
 
 ### Install Sealed Secrets
