@@ -71,6 +71,12 @@ kubectl apply -f https://raw.githubusercontent.com/prometheus-operator/prometheu
 kubectl apply -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.47.0/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
 ```
 
+## Create necessary secrets
+
+```sh
+kubectl apply -f manifests/argocd-workflows/templates
+```
+
 ## Install Argo and bootstrap cluster
 
 ```sh
