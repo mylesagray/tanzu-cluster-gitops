@@ -51,3 +51,5 @@ argo:
     resources:
       requests:
         memory: 2Gi
+    securityContext:
+      enabled: false
