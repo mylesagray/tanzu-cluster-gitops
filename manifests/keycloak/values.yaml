@@ -11,11 +11,5 @@ keycloak:
      value: https://sso.tanzu.blah.cloud/auth
   postgresql:
     existingSecret: keycloak-postgresql
-    securityContext:
-      fsGroup: 1001
-    containerSecurityContext:
-      runAsUser: 1001
     volumePermissions:
       enabled: true
-      securityContext:
-        runAsUser: 1001
