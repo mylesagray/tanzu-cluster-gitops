@@ -4007,6 +4007,7 @@ metadata:
   annotations:
     knative.dev/example-checksum: "15954d34"
 data:
+  ingress.class: kong
   _example: |
     ################################
     #                              #
