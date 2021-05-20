@@ -46,8 +46,8 @@ kube-prometheus-stack:
                 storage: 50Gi
       serviceMonitorSelectorNilUsesHelmValues: false
       podMonitorSelectorNilUsesHelmValues: false
-    securityContext:
-      runAsNonRoot: false
+      securityContext:
+        runAsNonRoot: false
   kubeEtcd:
     serviceMonitor:
       scheme: https
