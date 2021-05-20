@@ -11,3 +11,5 @@ keycloak:
      value: https://sso.tanzu.blah.cloud/auth
   postgresql:
     existingSecret: keycloak-postgresql
+    securityContext:
+      fsGroup: 0
