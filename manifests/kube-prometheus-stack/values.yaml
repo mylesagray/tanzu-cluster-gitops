@@ -27,6 +27,8 @@ kube-prometheus-stack:
   prometheus:
     thanosService:
       enabled: true
+    thanosServiceExternal:
+      enabled: true
     ingress:
       enabled: true
       hosts:
