@@ -50,6 +50,9 @@ kube-prometheus-stack:
       podMonitorSelectorNilUsesHelmValues: false
       securityContext:
         runAsNonRoot: false
+        runAsGroup: 0
+        runAsUser: 0
+        fsGroup: 0
   kubeEtcd:
     serviceMonitor:
       scheme: https
