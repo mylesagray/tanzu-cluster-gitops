@@ -26,8 +26,8 @@ spec:
   - kind: ValidatingWebhookConfiguration
     group: admissionregistration.k8s.io
     jsonPointers:
-    - /webhooks/rules
+    - /webhooks/0/rules
   - kind: MutatingWebhookConfiguration
     group: admissionregistration.k8s.io
     jsonPointers:
-    - /webhooks/rules
+    - /webhooks/0/rules
