@@ -71,6 +71,11 @@ argo-cd:
             ignoreDifferences: |
               jsonPointers:
               - /webhooks/0/clientConfig/caBundle
+              - /webhooks/0/rules
+          admissionregistration.k8s.io/ValidatingWebhookConfiguration:
+            ignoreDifferences: |
+              jsonPointers:
+              - /webhooks/0/rules
         resource.compareoptions: |
           ignoreAggregatedRoles: true
         resource.exclusions: |
