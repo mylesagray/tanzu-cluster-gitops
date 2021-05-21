@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goodbye-display
+spec:
+  replicas: 1
+  selector:
+    matchLabels: &labels
+      app: goodbye-display
+  template:
+    metadata:
+      labels: *labels
+    spec:
+      containers:
+        - name: event-display
+          # Source code: https://github.com/knative/eventing-contrib/tree/master/cmd/event_display
+          image: gcr.io/knative-releases/knative.dev/eventing-contrib/cmd/event_display
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: goodbye-display
+spec:
+  selector:
+    app: goodbye-display
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080

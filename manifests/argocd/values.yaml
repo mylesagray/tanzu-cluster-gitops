@@ -141,3 +141,17 @@ argo-cd:
         automated:
           prune: true
           selfHeal: true
+    - name: boostrap-testing
+      namespace: argocd
+      project: default
+      source:
+        repoURL: https://github.com/mylesagray/tanzu-cluster-gitops.git
+        targetRevision: HEAD
+        path: apps/knative
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: knative
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

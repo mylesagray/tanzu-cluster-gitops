@@ -1,0 +1,14 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: goodbye-display
+spec:
+  broker: default
+  filter:
+    attributes:
+      source: sendoff
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: goodbye-display
