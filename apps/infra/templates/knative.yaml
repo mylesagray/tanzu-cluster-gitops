@@ -22,3 +22,12 @@ spec:
     automated:
       prune: true
       selfHeal: true
+  ignoreDifferences:
+  - kind: ValidatingWebhookConfiguration
+    group: admissionregistration.k8s.io
+    jsonPointers:
+    - /webhooks/rules
+  - kind: MutatingWebhookConfiguration
+    group: admissionregistration.k8s.io
+    jsonPointers:
+    - /webhooks/rules
