@@ -104,15 +104,14 @@ make cleanup
 
 ### Apps
 
-* Add Reloader
-* Add Argo Events
-* Add Argo Rollouts
-* Add Renovate self-hosted
-* Add Istio
-* Add Tekto
-* Add KNative Operator deployment
-* * Investigate Argo Operator
-* Move from traefik to nginx + cert-manager for ingress and TLS
+* Investigate Istio vs Linkerd
+* Move from Traefik to new ingress controller + cert-manager for TLS
+* Add Tekton <https://github.com/tektoncd/pipeline>
+* Investigate [Argo Events](https://github.com/argoproj/argo-events) and [Argo Rollouts](https://argoproj.github.io/argo-rollouts/) vs [Flagger](https://github.com/fluxcd/flagger) / [Knative Eventing](https://knative.dev/docs/eventing/) and [Serving](https://knative.dev/docs/serving/)
+* Investifate KNative Operator <https://knative.dev/docs/install/knative-with-operators/>
+* Investigate Argo Operator <https://github.com/argoproj-labs/argocd-operator>
+* Add Reloader <https://github.com/stakater/Reloader>
+* Add Renovate self-hosted <https://docs.renovatebot.com/self-hosting/>
 
 ### Organisational
 
