@@ -27,9 +27,25 @@ spec:
     group: admissionregistration.k8s.io
     name: webhook.serving.knative.dev
     jsonPointers:
-    - /webhooks/0/rules
+    - /webhooks/0/rules/0
+    - /webhooks/0/rules/1
+    - /webhooks/0/rules/2
+    - /webhooks/0/rules/3
+    - /webhooks/0/rules/4
+    - /webhooks/0/rules/5
+    - /webhooks/0/rules/6
+    - /webhooks/0/rules/7
+    - /webhooks/0/rules/8
   - kind: MutatingWebhookConfiguration
     group: admissionregistration.k8s.io
     name: validation.webhook.serving.knative.dev
     jsonPointers:
-    - /webhooks/0/rules
+    - /webhooks/0/rules/0
+    - /webhooks/0/rules/1
+    - /webhooks/0/rules/2
+    - /webhooks/0/rules/3
+    - /webhooks/0/rules/4
+    - /webhooks/0/rules/5
+    - /webhooks/0/rules/6
+    - /webhooks/0/rules/7
+    - /webhooks/0/rules/8
