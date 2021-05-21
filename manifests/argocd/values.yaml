@@ -71,6 +71,8 @@ argo-cd:
             ignoreDifferences: |
               jsonPointers:
               - /webhooks/0/clientConfig/caBundle
+        resource.compareoptions: |
+          ignoreAggregatedRoles: true
         resource.exclusions: |
           - apiGroups:
             - "velero.io"
