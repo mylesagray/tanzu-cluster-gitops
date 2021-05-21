@@ -66,16 +66,9 @@ argo-cd:
               redirectURIs:
                 - https://argo-workflows.tanzu.blah.cloud/oauth2/callback
               secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
-        resource.customizations: |
-          admissionregistration.k8s.io/MutatingWebhookConfiguration:
-            ignoreDifferences: |
-              jsonPointers:
-              - /webhooks/0/clientConfig/caBundle
-              - /webhooks/0/rules
-          admissionregistration.k8s.io/ValidatingWebhookConfiguration:
-            ignoreDifferences: |
-              jsonPointers:
-              - /webhooks/0/rules
+        resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
+          jsonPointers:
+          - /webhooks/0/clientConfig/caBundle
         resource.compareoptions: |
           ignoreAggregatedRoles: true
         resource.exclusions: |
