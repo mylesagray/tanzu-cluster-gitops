@@ -120,6 +120,7 @@ make cleanup
 * Refactor App hierarchy
 * Refactor Apps into Projects
 * Use sync waves
+  * Example topology: <https://github.com/argoproj/argo-cd/issues/3516#issue-609473764>
 * Deploy from tags/branches rather than master
 
 ### Security
