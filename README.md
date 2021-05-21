@@ -104,6 +104,7 @@ make cleanup
 
 ### Apps
 
+* Knative serving samples <https://knative.dev/docs/serving/samples/>
 * Investigate Istio vs Linkerd
 * Move from Traefik to new ingress controller + cert-manager for TLS
 * Add Tekton <https://github.com/tektoncd/pipeline>
