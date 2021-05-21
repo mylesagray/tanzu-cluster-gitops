@@ -25,9 +25,11 @@ spec:
   ignoreDifferences:
   - kind: ValidatingWebhookConfiguration
     group: admissionregistration.k8s.io
+    name: webhook.serving.knative.dev
     jsonPointers:
     - /webhooks/0/rules
   - kind: MutatingWebhookConfiguration
     group: admissionregistration.k8s.io
+    name: validation.webhook.serving.knative.dev
     jsonPointers:
     - /webhooks/0/rules
