@@ -107,11 +107,11 @@ make cleanup
 * Add Reloader
 * Add Argo Events
 * Add Argo Rollouts
-* Investigate Argo Operator
 * Add Renovate self-hosted
 * Add Istio
-* Add Tekton
-* Add KNative
+* Add Tekto
+* Add KNative Operator deployment
+* * Investigate Argo Operator
 * Move from traefik to nginx + cert-manager for ingress and TLS
 
 ### Organisational
