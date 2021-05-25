@@ -1,0 +1,14 @@
+minio:
+  defaultBucket:
+    enabled: true
+    name: argo-artifacts
+  tolerations:
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/master
+  existingSecret: argo-workflows-minio
+  ingress:
+    enabled: true
+    hosts:
+    - minio.tanzu.blah.cloud
+  securityContext:
+    enabled: false
