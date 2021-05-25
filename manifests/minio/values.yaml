@@ -10,5 +10,8 @@ minio:
     enabled: true
     hosts:
     - minio.tanzu.blah.cloud
+  resources:
+    requests:
+      memory: 2Gi
   securityContext:
     enabled: false
