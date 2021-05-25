@@ -3,3 +3,5 @@ kibana:
     enabled: true
     hosts:
       - host: kibana.tanzu.blah.cloud
+        paths:
+        - path: /
