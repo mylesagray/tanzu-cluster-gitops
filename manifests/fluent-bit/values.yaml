@@ -73,6 +73,7 @@ fluent-bit:
           Retry_Limit 10
           Replace_Dots On
           Trace_Error On
+          tls On
 
       [OUTPUT]
           Name es
@@ -82,6 +83,7 @@ fluent-bit:
           Logstash_Prefix node
           Retry_Limit 10
           Trace_Error On
+          tls On
 
     ## https://docs.fluentbit.io/manual/pipeline/parsers
     customParsers: |
