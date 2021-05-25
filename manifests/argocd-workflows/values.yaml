@@ -1,4 +1,4 @@
-argo:
+argo-workflows:
   workflow:
     serviceAccount:
       create: true
@@ -15,7 +15,7 @@ argo:
     ingress:
       enabled: true
       hosts:
-        - argo-workflows.tanzu.blah.cloud
+      - argo-workflows.tanzu.blah.cloud
     extraArgs:
       - --auth-mode=sso
     sso:
