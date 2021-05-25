@@ -1,0 +1,12 @@
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/mylesagray/tanzu-cluster-gitops.git'
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
