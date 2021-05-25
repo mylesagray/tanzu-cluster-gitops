@@ -5,3 +5,8 @@ elasticsearch:
       - host: es.tanzu.blah.cloud
         paths:
         - path: /
+  resources:
+    requests:
+      cpu: null
+    limits:
+      cpu: null
