@@ -69,6 +69,7 @@ fluent-bit:
           Name es
           Match kube.*
           Host es.tanzu.blah.cloud
+          Port 443
           Retry_Limit 10
           Replace_Dots On
           Trace_Error On
@@ -77,6 +78,7 @@ fluent-bit:
           Name es
           Match host.*
           Host es.tanzu.blah.cloud
+          Port 443
           Logstash_Prefix node
           Retry_Limit 10
           Trace_Error On
