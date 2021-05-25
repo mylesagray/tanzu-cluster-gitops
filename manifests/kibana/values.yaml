@@ -5,3 +5,8 @@ kibana:
       - host: kibana.tanzu.blah.cloud
         paths:
         - path: /
+  resources:
+    requests:
+      cpu: null
+    limits:
+      cpu: null
