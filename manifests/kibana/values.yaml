@@ -10,3 +10,4 @@ kibana:
       cpu: null
     limits:
       cpu: null
+  elasticsearchHosts: "https://es.tanzu.blah.cloud"
