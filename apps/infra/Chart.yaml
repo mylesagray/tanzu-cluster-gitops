@@ -1,5 +1,5 @@
 apiVersion: v2
 appVersion: "1.0"
-description: "Infrastructure Apps"
-name: infra
+description: "Monitoring Apps"
+name: monitoring
 version: 0.2.0
