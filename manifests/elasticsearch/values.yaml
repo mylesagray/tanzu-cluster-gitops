@@ -3,3 +3,5 @@ elasticsearch:
     enabled: true
     hosts:
       - host: es.tanzu.blah.cloud
+        paths:
+        - path: /

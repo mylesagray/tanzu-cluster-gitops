@@ -113,44 +113,16 @@ argo-cd:
         automated:
           prune: true
           selfHeal: true
-    - name: boostrap-cheese
+    - name: bootstrap
       namespace: argocd
       project: default
       source:
         repoURL: https://github.com/mylesagray/tanzu-cluster-gitops.git
         targetRevision: HEAD
-        path: apps/cheese
+        path: apps/bootstrap
       destination:
         server: https://kubernetes.default.svc
-        namespace: cheese
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-    - name: boostrap-quake
-      namespace: argocd
-      project: default
-      source:
-        repoURL: https://github.com/mylesagray/tanzu-cluster-gitops.git
-        targetRevision: HEAD
-        path: apps/quake
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: quake
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-    - name: boostrap-testing
-      namespace: argocd
-      project: default
-      source:
-        repoURL: https://github.com/mylesagray/tanzu-cluster-gitops.git
-        targetRevision: HEAD
-        path: apps/knative
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: knative
+        namespace: infra
       syncPolicy:
         automated:
           prune: true
