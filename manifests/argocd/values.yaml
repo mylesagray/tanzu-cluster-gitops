@@ -99,20 +99,6 @@ argo-cd:
       policy.csv: |
         g, blahcloud:k8s, role:admin
     additionalApplications:
-    - name: bootstrap-cluster
-      namespace: argocd
-      project: default
-      source:
-        repoURL: https://github.com/mylesagray/tanzu-cluster-gitops.git
-        targetRevision: HEAD
-        path: apps/infra
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: infra
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
     - name: bootstrap
       namespace: argocd
       project: default
