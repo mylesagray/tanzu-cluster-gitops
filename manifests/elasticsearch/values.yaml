@@ -12,6 +12,7 @@ elasticsearch:
     limits:
       cpu: null
       memory: null
+  esJavaOpts: "-Xmx1g -Xms1g"
   extraInitContainers:
    - name: file-permissions
      image: busybox
