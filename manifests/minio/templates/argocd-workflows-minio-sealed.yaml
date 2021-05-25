@@ -3,7 +3,7 @@ kind: SealedSecret
 metadata:
   creationTimestamp: null
   name: argo-workflows-minio
-  namespace: argocd
+  namespace: minio
 spec:
   encryptedData:
     accesskey: AgDQU38VS8qm0giP8dsDhMVx6AodMAFHOOAS9CKq5aC8a7GsZXWiGlICws46X3Qyy3cJfr9jqpgALAXQpwmsSlHngtYzHAiQyLk2vjaMfcyZ6c7xOUMevr7x+daCMKsnzIogSAipDRvbMUyQNcga5xJBjQZlvJIDHpMu+mRGjHq3itARVlyXUw9RFyHsbxqyNLWuI01Zjpsd22N10hsh2NwfEx7QjntuRki+kAd5I2b53bai52UvxUNbf+9t/3KvPmRyVImYK/0iWQINqTwtEoB2+vmFotHk467L9/+R/ebA2j819Y7SLsvjqcXli8Lq5qFmJuwcrzNZD8Z8okGC9TfcPi55p8GQtb0m3scogUSO+7MW8CxRv9RqEvCmjFIP5S+aNLiupKxN/IPeB5CbD4UfK1d65BVgJnT0yS5Q9reU/0+lggdY+fL+5FrZXQqqnGfFuu3/jHRQSiACjGGlIfJiYJ9RjlCqJvXsSkXpBWslK3G4rOyxhL0Aabjfhd6y+V/6Mcp8XYDkFgXAuDV1uENcv1QlDAtQRJLWe9NhA7vEhiqhuPV/eFUAz1z5iSZy9hjRzf/U8s7NCqxUa5ZvpzgSio/FZKuBt258U1meDtQnOj0BnWmQdqBI8mONu1hUC6y79PXdamdl8Fipa1fF95F22MUvNwN6oOeg79No6IUVS/+g2EuLY+1INmQfeLuP31OQPAVG/e/iSIXminI4WaTZEMPWag==
@@ -15,6 +15,6 @@ spec:
         app: minio
         argocd.argoproj.io/instance: argocd-workflows
       name: argo-workflows-minio
-      namespace: argocd
+      namespace: minio
     type: Opaque
 
