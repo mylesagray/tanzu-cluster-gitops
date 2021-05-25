@@ -1,0 +1,5 @@
+apiVersion: v2
+appVersion: "1.0"
+description: "Logging Infra"
+name: logging
+version: 0.2.0

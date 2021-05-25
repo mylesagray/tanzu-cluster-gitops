@@ -1,0 +1,5 @@
+elasticsearch:
+  ingress:
+    enabled: true
+    hosts:
+      - host: es.tanzu.blah.cloud

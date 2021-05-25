@@ -1,0 +1,5 @@
+kibana:
+  ingress:
+    enabled: true
+    hosts:
+      - host: kibana.tanzu.blah.cloud
