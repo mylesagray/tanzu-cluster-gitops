@@ -35,10 +35,12 @@ kube-prometheus-stack:
       enabled: true
       hosts:
       - prometheus.tanzu.blah.cloud
+      pathType: Prefix
     thanosIngress:
       enabled: true
       hosts:
       - thanos.tanzu.blah.cloud
+      pathType: Prefix
     prometheusSpec:
       secrets: ['kube-etcd-client-certs']
       storageSpec:
@@ -81,3 +83,4 @@ kube-prometheus-stack:
       enabled: true
       hosts:
       - alertmanager.tanzu.blah.cloud
+      pathType: Prefix
