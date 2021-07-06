@@ -5,7 +5,7 @@ metadata:
   namespace: quake
 spec:
   rules:
-  - host: quake.tanzu.blah.cloud
+  - host: quake2.tanzu.blah.cloud
     http:
       paths:
       - backend:
