@@ -32,6 +32,8 @@ argo-cd:
   server:
     extraArgs:
     - --insecure
+    staticAssets:
+      enabled: true
     ingress:
         enabled: true
         hosts:
