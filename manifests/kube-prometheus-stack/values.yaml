@@ -10,8 +10,8 @@ kube-prometheus-stack:
       accessModes:
         - ReadWriteOnce
       size: 10Gi
-      deploymentStrategy:
-        type: Recreate
+    deploymentStrategy:
+      type: Recreate
     grafana.ini:
       server:
         root_url: https://grafana.tanzu.blah.cloud
