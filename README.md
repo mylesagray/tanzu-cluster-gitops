@@ -1,6 +1,6 @@
 # K8s cluster bootstrap and app install
 
-[![ArgoCD Status](https://argocd.tanzu.blah.cloud/api/badge?name=bootstrap&revision=true)](https://argocd.tanzu.blah.cloud/api/badge?name=bootstrap)
+[![ArgoCD Status](https://argocd.tanzu.blah.cloud/api/badge?name=bootstrap&revision=true)](https://argocd.tanzu.blah.cloud/applications/bootstrap)
 
 ## Apply PSP
 
