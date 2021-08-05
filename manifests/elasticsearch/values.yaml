@@ -5,6 +5,11 @@ elasticsearch:
       - host: es.tanzu.blah.cloud
         paths:
         - path: /
+  volumeClaimTemplate:
+    accessModes: [ "ReadWriteOnce" ]
+    resources:
+      requests:
+        storage: 100Gi
   # resources:
   #   requests:
   #     cpu: null
