@@ -1,0 +1,20 @@
+influxdb:
+  image:
+    tag: "1.8.9"
+  setDefaultUser:
+    enabled: true
+    image: curlimages/curl
+    user:
+      existingSecret: influxdb-auth
+  startupProbe:
+    enabled: true
+  persistence:
+    size: 50Gi
+  ingress:
+    enabled: true
+    hostname: influxdb.apps.blah.cloud
+    className: "traefik"
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-live
+    secretName: influxdb-cert
+    tls: true

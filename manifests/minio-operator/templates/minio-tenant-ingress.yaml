@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-live
+    kubernetes.io/ingress.class: traefik
+    ingress.kubernetes.io/protocol: https
+    traefik.ingress.kubernetes.io/service.serversscheme: https
+  name: minio-operator-tenant
+  namespace: minio
+spec:
+  rules:
+    - host: s3.apps.blah.cloud
+      http:
+        paths:
+          - backend:
+              serviceName: minio-hl
+              servicePort: http-minio
+            path: /
+  tls:
+    - hosts:
+        - s3.apps.blah.cloud
+      secretName: minio-tenant-cert

@@ -1,0 +1,18 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: influxdb-auth
+  namespace: default
+spec:
+  encryptedData:
+    influxdb-password: AgAGfzTHayV2xYwjgMtl5vt6pFhZpGB+MTEiyd585sIHDloazKLUn99s/V6xveXAP1WT+JmsET5q0UZxtVQ3Dz/gMugr9XvE1zICLk9nKYFqwAAZpJGXwav1NoVGNN/RWE9/7K+aP4jD+8mvuK1lLZ688Agl7ARROC5LFkOFOWy02WSkgRlxyADUP5F3zdSpwDZI8Y5uo4ypcKANMxsSw+IlR5kPUe7qJls4j+fEGmvrnKnqXV0GlWGJukZ4h5OvTtxcn5Tn8Kw1dMkS23bDOIYnBRQt8eV/7CycHyj8r9plCp+2SyIXf+Sh1ttFh2zlICr6eb0FjR2SBbIJbaj8SiSS1qxCMDRtMKei5yw79n6Fi3gRxrgQTPNyB87eBRHNdudX42avLcjEgfmPoSVDU00HEpPvpMicPoH5hcjWG2cIhd2NXAiAt4lSKunAVi5WuTA1pb9q4STFkQneycIa0y0Su0alFtIyCXvau20RdK95KMPf475a37GO+8U5h+v14YxEtluWhx8SUrwPEsuSXd2rEwG0PyqRpzxAEIxrE8NBP06N4bpfYbHiFf1MLff6CbakuAiYVqx/RBTTk+zpsouzgMyEni/NPCWyelSyN+iuIAu3qEZeIOZ2c+Em/jT6jNluWfWCcgfr78FEesR1mfhRnSriqY3w3DwTkBCLtxxvRvPbiFUbEm6OJPBwCMlG6oQRkg4WnHfrWfnX
+    influxdb-user: AgBMsEuwTtDDuV/TfbRo6Uelxhv4djrD+otPG+yT3aGi3JYB1wsIsdUXlMx470clDn5lH8ILPe2N/eg0pw/w1bsxJNml40J00zEKBbZcDS6ury7f23FHsA9UbalRVFJHHr6CFNyScOih9Fz8Y/qSUf0PpuIFkVZRE2MTepMxuoD6xlN8AkwcyhZfLR1Fk9P/5G/l20A+fa75mtJ+QqRIkdWbh+fXvNSNCzfCTzE0CHBIt878WXMy9SqaClJXqnsKGPDUPxe6crXTFl+cECONV03MIZoGO/Jlz8qt0CDk2QubQU+VxFAiXjAkO/9jPWjDbH7Om0vpDDbCZ7TaChJO38S/Bdk+n9TT3aIch42MMeSZ/uaxT7P6GKzUlA44nLP0XzczAnHWeHPt4rsMh2/ufoY843ywC6GIoSZAV1lrhBIGb2kOBhdzVxn0LqNtjKF0kMMfLCu1ABP4CYQmAkUCQWncWnLA7TFtnpVMbuIOX2gX3RAnDmdFHRgCmgMAJyLWVAo0p2/XEYxax/+J7bX5hLTDnP+Z+MLiDoC4el1VzwluTQxZLJkBPVoFhLSlSEr7Rp1CyRZijD02vgC3ZkWj2jWSr3xc5mIj2BqhkXwdQX/LVFM+q3FxXepn2K/RCegypOvG0ilP/yuFo828A7fgNdWU5rxxzAjM+Dtd/WNI0XNtGk8PvnAXe+PFtBAI3h6vDOwnoZ/y4w==
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: influxdb-auth
+      namespace: default
+    type: Opaque
+

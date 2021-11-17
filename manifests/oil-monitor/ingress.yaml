@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-live
+  labels:
+    app.kubernetes.io/name: oil-monitor
+  name: oil-monitor
+  namespace: oil-monitor
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: oil.apps.blah.cloud
+    http:
+      paths:
+      - backend:
+          service:
+            name: oil-monitor
+            port:
+              number: 8080
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+      - oil.apps.blah.cloud
+    secretName: oil-monitor-cert
