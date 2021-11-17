@@ -18,6 +18,7 @@ watch-apps:
 	watch -n 1 argocd app list
 
 install-prereqs:
+	kubectl create clusterrolebinding default-tkg-admin-privileged-binding --clusterrole=psp:vmware-system-privileged --group=system:authenticated || true
 	kubectl create -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.52.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
 	kubectl create -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.52.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml
 	kubectl create -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.52.0/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml
@@ -98,6 +99,15 @@ cleanup:
 	kubectl delete ns auth || true
 	kubectl delete ns registry-creds-system || true
 	kubectl delete ns kubernetes-dashboard || true
+	kubectl delete crd alertmanagerconfigs.monitoring.coreos.com || true
+	kubectl delete crd alertmanagers.monitoring.coreos.com || true
+	kubectl delete crd podmonitors.monitoring.coreos.com || true
+	kubectl delete crd probes.monitoring.coreos.com || true
+	kubectl delete crd prometheuses.monitoring.coreos.com || true
+	kubectl delete crd prometheusrules.monitoring.coreos.com || true
+	kubectl delete crd servicemonitors.monitoring.coreos.com || true
+	kubectl delete crd thanosrulers.monitoring.coreos.com || true
+	kubectl delete crd sealedsecrets.bitnami.com || true
 	kubectl get apiservice | grep False | awk '{print $1}' | xargs -I {} kubectl delete apiservice {} 
 	kubectl delete all -l app.kubernetes.io/managed-by=Helm -A || true
 	kubectl delete all -n default --all || true
