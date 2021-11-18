@@ -12,11 +12,6 @@ elasticsearch:
     - secretName: elasticsearch-cert
       hosts:
         - es.tanzu.blah.cloud
-  volumeClaimTemplate:
-    accessModes: [ "ReadWriteOnce" ]
-    resources:
-      requests:
-        storage: 100Gi
   # resources:
   #   requests:
   #     cpu: null
