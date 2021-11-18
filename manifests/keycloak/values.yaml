@@ -1,11 +1,16 @@
 keycloak:
   auth:
-    existingSecret:
-      name: keycloak
+    existingSecret: "keycloak"
   proxyAddressForwarding: true
   ingress:
     enabled: true
     hostname: sso.tanzu.blah.cloud
+    certManager: true
+    ingressClassName: "traefik"
+    annotations:
+      kubernetes.io/ingress.class: traefik
+      cert-manager.io/cluster-issuer: letsencrypt-live
+    tls: true
   extraEnvVars:
    - name: KEYCLOAK_FRONTEND_URL
      value: https://sso.tanzu.blah.cloud/auth

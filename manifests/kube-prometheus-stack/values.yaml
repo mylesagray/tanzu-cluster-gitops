@@ -4,6 +4,13 @@ kube-prometheus-stack:
       enabled: true
       hosts:
       - grafana.tanzu.blah.cloud
+      annotations:
+        kubernetes.io/ingress.class: traefik
+        cert-manager.io/cluster-issuer: letsencrypt-live
+      tls:
+      - secretName: grafana-cert
+        hosts:
+          - grafana.tanzu.blah.cloud
     persistence:
       type: pvc
       enabled: true
@@ -24,6 +31,7 @@ kube-prometheus-stack:
         token_url: "https://sso.tanzu.blah.cloud/auth/realms/development/protocol/openid-connect/token"
         api_url: "https://sso.tanzu.blah.cloud/auth/realms/development/protocol/openid-connect/userinfo"
         allow_sign_up: true
+        tls_skip_verify_insecure: true
         email_attribute_name: email
         scopes: "openid profile email"
   prometheus:
@@ -36,11 +44,27 @@ kube-prometheus-stack:
       hosts:
       - prometheus.tanzu.blah.cloud
       pathType: Prefix
+      ingressClassName: traefik
+      annotations:
+        kubernetes.io/ingress.class: traefik
+        cert-manager.io/cluster-issuer: letsencrypt-live
+      tls:
+      - secretName: prometheus-cert
+        hosts:
+          - prometheus.tanzu.blah.cloud
     thanosIngress:
       enabled: true
       hosts:
       - thanos.tanzu.blah.cloud
       pathType: Prefix
+      ingressClassName: traefik
+      annotations:
+        kubernetes.io/ingress.class: traefik
+        cert-manager.io/cluster-issuer: letsencrypt-live
+      tls:
+      - secretName: thanos-cert
+        hosts:
+          - thanos.tanzu.blah.cloud
     prometheusSpec:
       secrets: ['kube-etcd-client-certs']
       storageSpec:
@@ -84,3 +108,11 @@ kube-prometheus-stack:
       hosts:
       - alertmanager.tanzu.blah.cloud
       pathType: Prefix
+      ingressClassName: traefik
+      annotations:
+        kubernetes.io/ingress.class: traefik
+        cert-manager.io/cluster-issuer: letsencrypt-live
+      tls:
+      - secretName: alertmanager-cert
+        hosts:
+          - alertmanager.tanzu.blah.cloud

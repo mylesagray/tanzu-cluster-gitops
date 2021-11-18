@@ -12,7 +12,7 @@ influxdb:
     size: 50Gi
   ingress:
     enabled: true
-    hostname: influxdb.apps.blah.cloud
+    hostname: influxdb.tanzu.blah.cloud
     className: "traefik"
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-live

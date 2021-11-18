@@ -15,7 +15,15 @@ argo-workflows:
     ingress:
       enabled: true
       hosts:
-      - argo-workflows.tanzu.blah.cloud
+        - argo-workflows.tanzu.blah.cloud
+      ingressClassName: "traefik"
+      annotations:
+        kubernetes.io/ingress.class: traefik
+        cert-manager.io/cluster-issuer: letsencrypt-live
+      tls:
+      - secretName: argo-workflows-cert
+        hosts:
+          - argo-workflows.tanzu.blah.cloud
     extraArgs:
       - --auth-mode=sso
     sso:

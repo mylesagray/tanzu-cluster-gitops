@@ -10,7 +10,7 @@ metadata:
   namespace: minio
 spec:
   rules:
-    - host: s3.apps.blah.cloud
+    - host: s3.tanzu.blah.cloud
       http:
         paths:
           - backend:
@@ -19,5 +19,5 @@ spec:
             path: /
   tls:
     - hosts:
-        - s3.apps.blah.cloud
+        - s3.tanzu.blah.cloud
       secretName: minio-tenant-cert

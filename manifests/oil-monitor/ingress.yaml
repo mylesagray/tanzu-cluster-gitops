@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: oil.apps.blah.cloud
+  - host: oil.tanzu.blah.cloud
     http:
       paths:
       - backend:
@@ -22,5 +22,5 @@ spec:
         pathType: ImplementationSpecific
   tls:
   - hosts:
-      - oil.apps.blah.cloud
+      - oil.tanzu.blah.cloud
     secretName: oil-monitor-cert
