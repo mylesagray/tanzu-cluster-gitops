@@ -10,6 +10,8 @@ argo-cd:
       enabled: true
       serviceMonitor:
         enabled: true
+        interval: 15s
+        namespace: argocd
     env:
       - name: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
         valueFrom:
@@ -39,11 +41,27 @@ argo-cd:
         hosts:
         - argocd.tanzu.blah.cloud
         https: false
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-live
+          kubernetes.io/ingress.class: traefik
+        ingressClassName: "traefik"
+        tls:
+        - secretName: argocd-https-cert
+          hosts:
+          - argocd.tanzu.blah.cloud
     ingressGrpc:
         enabled: true
         hosts:
         - argocd.tanzu.blah.cloud
         https: false
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-live
+          kubernetes.io/ingress.class: traefik
+        ingressClassName: "traefik"
+        tls:
+        - secretName: argocd-grpc-cert
+          hosts:
+          - argocd.tanzu.blah.cloud
     config:
         admin.enabled: 'true'
         statusbadge.enabled: 'true'
@@ -68,9 +86,16 @@ argo-cd:
               redirectURIs:
                 - https://argo-workflows.tanzu.blah.cloud/oauth2/callback
               secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
-        resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
-          jsonPointers:
-          - /webhooks/0/clientConfig/caBundle
+        resource.customizations: |
+          admissionregistration.k8s.io/MutatingWebhookConfiguration:
+            ignoreDifferences: |
+              jsonPointers:
+              - /webhooks/0/clientConfig/caBundle
+          networking.k8s.io/Ingress:
+            health.lua: |
+              hs = {}
+              hs.status = "Healthy"
+              return hs
         resource.compareoptions: |
           ignoreAggregatedRoles: true
         resource.exclusions: |
@@ -82,12 +107,9 @@ argo-cd:
             - '*'
         repositories: |
           - url: https://github.com/mylesagray/tanzu-cluster-gitops.git
-          - type: helm
-            url: https://argoproj.github.io/argo-helm
-            name: argo
-          - type: helm
-            url: https://charts.helm.sh/stable
+          - url: https://charts.helm.sh/stable
             name: stable
+            type: helm
         repository.credentials: |
           - url: https://github.com/mylesagray
             passwordSecret:
@@ -100,6 +122,31 @@ argo-cd:
       policy.default: role:readonly
       policy.csv: |
         g, blahcloud:k8s, role:admin
+    additionalProjects: 
+    - name: default
+      namespace: argocd
+      additionalAnnotations: 
+        notifications.argoproj.io/subscribe.on-sync-succeeded.slack: kubernetes
+      sourceRepos:
+      - '*'
+      clusterResourceWhitelist:
+      - group: '*'
+        kind: '*'
+      destinations:
+      - namespace: '*'
+        server: '*'
+    - name: cd
+      namespace: argocd
+      additionalAnnotations: 
+        notifications.argoproj.io/subscribe.on-sync-succeeded.slack: kubernetes
+      sourceRepos:
+      - '*'
+      clusterResourceWhitelist:
+      - group: '*'
+        kind: '*'
+      destinations:
+      - namespace: '*'
+        server: '*'
     additionalApplications:
     - name: bootstrap
       namespace: argocd
