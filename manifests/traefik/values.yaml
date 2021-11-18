@@ -1,34 +1,46 @@
 traefik:
+  replicas: 4
+  podDisruptionBudget:
+    minAvailable: 2
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: app
+            operator: In
+            values:
+            - traefik
+        topologyKey: "kubernetes.io/hostname"
+  tolerations:
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/master
   rbac:
     enabled: true
   kubernetes:
+    ingressClass: traefik
     ingressEndpoint:
       useDefaultPublishedService: true
   metrics:
     prometheus:
       enabled: true
-      serviceMonitor:
-        enabled: true
+    serviceMonitor:
+      enabled: true
+      namespace: ingress
+      interval: 30s
   dashboard:
     enabled: true
     domain: "traefik.tanzu.blah.cloud"
+    ingress:
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-live
+        kubernetes.io/ingress.class: traefik
+      tls:
+        - hosts:
+          - traefik.tanzu.blah.cloud
+          secretName: traefik-cert
   ssl:
     enabled: true
     enforced: true
     permanentRedirect: true
     insecureSkipVerify: true
-  acme:
-    enabled: true
-    challengeType: "dns-01"
-    keyType: RSA4096
-    email: mg@mylesgray.com
-    onHostRule: true
-    staging: false
-    logging: true
-    delayBeforeCheck: 0
-    resolvers:
-    - abby.ns.cloudflare.com
-    - sid.ns.cloudflare.com
-    dnsProvider:
-      name: cloudflare
-      existingSecretName: traefik-dnsprovider-config
