@@ -47,6 +47,7 @@ install-prereqs:
 	git add .
 	git commit -m "ArgoCD secret regen"
 	git push
+	kubectl apply -f manifests/registry-creds
 	kubectl get secret -n kube-system -l sealedsecrets.bitnami.com/sealed-secrets-key -o yaml > ~/Desktop/ArgoCD-Secrets/tanzu/sealed-secrets-master.key
 	kubectl create ns argocd || true
 	kubectl create ns minio || true
