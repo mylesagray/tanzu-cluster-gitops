@@ -4,23 +4,30 @@ kubernetes-dashboard:
   ingress:
     enabled: true
     annotations:
-      kubernetes.io/ingress.class: traefik 
+      kubernetes.io/ingress.class: traefik
+      cert-manager.io/cluster-issuer: letsencrypt-live
     hosts: 
     - k8s.tanzu.blah.cloud
+    tls:
+    - secretName: k8s-dashboard-cert
+      hosts:
+      - k8s.tanzu.blah.cloud
+  metricsScraper:
+    enabled: true
   metrics-server:
     enabled: true
     args:
       - --kubelet-insecure-tls
       - --kubelet-preferred-address-types=InternalIP
-  image:
-    tag: v2.1.0
   settings: 
-    clusterName: "TKC-1"
+    clusterName: "TKG"
     ## Max number of items that can be displayed on each list page
-    # itemsPerPage: 10
+    itemsPerPage: 25
     ## Number of seconds between every auto-refresh of logs
-    # logsAutoRefreshTimeInterval: 5
+    logsAutoRefreshTimeInterval: 5
+    ## Number of labels to display by default
+    labelsLimit: 2
     ## Number of seconds between every auto-refresh of every resource. Set 0 to disable
-    # resourceAutoRefreshTimeInterval: 5
+    resourceAutoRefreshTimeInterval: 5
     ## Hide all access denied warnings in the notification panel
-    # disableAccessDeniedNotifications: false
+    disableAccessDeniedNotifications: false
