@@ -1,0 +1,17 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: docker-creds
+  namespace: argocd
+spec:
+  encryptedData:
+    .dockerconfigjson: AgBJ4s8IqA45T4zQrs1QitZnjEJgGuHeMzwsjvfsok0BaaAEA2Rgn7klo+56DG1ODpd5SmKpNIKRPBZ3NRJksMjhOLXVJA6IRW+5BwduLKgSMjT9LbUJcUiWxbizTCaELTnfaTxgCHMQPjrspR+lwrEWUS2h/ffnKniuqBLNnlBY8FIVD5MY5ujH1RU4etzOEz3g1uxlPd970jWcI6tHBMT74IFp5ETwkLM8rVWPpJyNa2X5189X8XYGLJV8BkV0zlTdFK1LQ9l+JrXZvQt/Fm7/ZtNLacMylPbVhwdzWuDxUR1Wa7BXzVIRdXtXhCj6KqhqMft4C+Uf4JX/QzuqpAsQuvRHo0oDW/vO/jB93O1plFeYSraQPfNJjbGItoqzOEc9Bnks9LJKHdKiTyE4geewtXcRvWVy+RxhrPYwcPTIf116ZcHIO/OUSR8os6tjtktrDPr48TEaK4fhUClgtmt2t8WYl+JFX6yQkY5FcyU4o7SP5BNs4FwsxGiJ7yKx9+662xQF/Py49B3k388vAQuHzJx/vMvsJBRovGcApEabfESQRBLpY/E6uSwJqQiX0blURH3Ks4gdPHgBP5x6M8XkVVymHoCnKtN3DqVcBN0tdxun1nVbgDGNoOYHfKVRq18HGe9sE+lAK/i/1E+Xx9ned2rDjAkPBmdgT3uXY+fJlb1ygv0cPDGVI0Yhy9mTIHlvOkU3ibu4iZVbTe4gJT00EtcbJU6JDPcrT6lpAgk41kM3Ebmtwh/fHjSgkDEsWby6DELJKauvLR3mZjO/OTutpbafbxcDuiiKkH1vs4b+NrS5qa3U1TLe12UurJl6/JFHTLI+xNPYtFqxf+w6p9Q3QkuAkt9nZwFu/ogmqADhKc3lT+5WFOR4JYUR4rmNyfFr3XXdGICO5KoKO7ez2HellEo1rI1YxaqguZdobrn1LFDh7lFj6srbi09gXzuW
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: docker-creds
+      namespace: argocd
+    type: kubernetes.io/dockerconfigjson
+
