@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: quake2.tanzu.blah.cloud
+  - host: quake.tanzu.blah.cloud
     http:
       paths:
       - backend:
@@ -22,5 +22,5 @@ spec:
         pathType: ImplementationSpecific
   tls:
   - hosts:
-    - quake2.tanzu.blah.cloud
+    - quake.tanzu.blah.cloud
     secretName: quake-cert
