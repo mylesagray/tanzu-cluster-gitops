@@ -16,7 +16,7 @@ spec:
     directory:
       recurse: true
   destination:
-    server: sv-clu01-argocd-ns
+    server: 'https://172.16.74.128:6443'
     namespace: myles-ns-01
   syncPolicy:
     automated:
