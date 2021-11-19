@@ -1,0 +1,23 @@
+apiVersion: run.tanzu.vmware.com/v1alpha2
+kind: TanzuKubernetesCluster
+metadata:
+  name: argo-provisioned-tkc-1
+  namespace: myles-ns-01
+spec:
+  distribution:
+    version: v1.21
+  settings:
+    storage:
+      classes:
+      - vsan-default-storage-policy
+      defaultClass: vsan-default-storage-policy
+  topology:
+    controlPlane:
+      replicas: 1
+      storageClass: vsan-default-storage-policy
+      vmClass: best-effort-large
+    nodePools:
+    - name: workers
+      replicas: 4
+      storageClass: vsan-default-storage-policy
+      vmClass: best-effort-large
