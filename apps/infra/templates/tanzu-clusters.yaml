@@ -16,8 +16,8 @@ spec:
     directory:
       recurse: true
   destination:
-    server: {{ .Values.spec.destination.server }}
-    namespace: {{ .Values.spec.destination.namespace }}
+    server: sv-clu01-argocd-ns
+    namespace: myles-ns-01
   syncPolicy:
     automated:
       prune: true
