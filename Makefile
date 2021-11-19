@@ -31,6 +31,7 @@ install-prereqs:
 	kubectl wait --for=condition=available deployment -l "app.kubernetes.io/name=sealed-secrets" -n kube-system --timeout=300s
 	kubeseal --format=yaml < ~/Desktop/ArgoCD-Secrets/docker-creds.yaml > manifests/registry-creds/02-docker-creds-sealed.yaml
 	kubeseal --format=yaml < ~/Desktop/ArgoCD-Secrets/tanzu/argocd-secret.yaml > manifests/argocd/templates/argocd-sealed-secret.yaml
+	kubeseal --format=yaml < ~/Desktop/ArgoCD-Secrets/tanzu/argocd-ns-target.yaml > manifests/argocd/templates/argocd-ns-target-sealed-secret.yaml
 	kubeseal --format=yaml < ~/Desktop/ArgoCD-Secrets/argocd-github-secret.yaml > manifests/argocd/templates/argocd-github-sealed-secret.yaml
 	kubeseal --format=yaml < ~/Desktop/ArgoCD-Secrets/argocd-notifications-secret.yaml > manifests/argocd-notifications/templates/argocd-notifications-secret-sealed.yaml
 	kubeseal --format=yaml < ~/Desktop/ArgoCD-Secrets/renovate-secret.yaml > manifests/renovate/templates/renovate-sealed-secret.yaml
