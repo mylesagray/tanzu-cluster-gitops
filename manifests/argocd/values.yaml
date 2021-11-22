@@ -110,6 +110,7 @@ argo-cd:
             kinds:
             - machinepools
             - PodTemplate
+            - wcpnamespaces.appplatform.wcp.vmware.com
             clusters:
             - 'https://172.16.74.128:6443'
         repositories: |
