@@ -108,8 +108,8 @@ argo-cd:
           - apiGroups:
             - ""
             kinds:
-            - machinepools
             - PodTemplate
+            - machinepools.exp.cluster.x-k8s.io
             - wcpnamespaces.appplatform.wcp.vmware.com
             clusters:
             - 'https://172.16.74.128:6443'
