@@ -106,14 +106,14 @@ argo-cd:
             clusters:
             - '*'
           - apiGroups:
-            - ""
+            - "*"
             kinds:
             - PodTemplate
             clusters:
             - https://172.16.74.128:6443
         resource.inclusions: |
           - apiGroups:
-            - ""
+            - "*"
             kinds:
             - "*""
             clusters:
