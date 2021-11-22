@@ -152,12 +152,12 @@ argo-cd:
             - "*"
             clusters:
             - https://172.16.74.128:6443
-          - apiGroups:
-            - "networking.x-k8s.io"
-            kinds: 
-            - Gateway
-            clusters:
-            - https://172.16.74.128:6443
+          # - apiGroups:
+          #   - "networking.x-k8s.io"
+          #   kinds: 
+          #   - Gateway
+          #   clusters:
+          #   - https://172.16.74.128:6443
           - apiGroups:
             - "rbac.authorization.k8s.io"
             kinds: 
