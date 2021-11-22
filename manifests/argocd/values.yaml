@@ -109,7 +109,7 @@ argo-cd:
             - "*"
             kinds:
             - PodTemplate
-            - csistoragecapacities.storage.k8s.io
+            - CSIStorageCapacity.storage.k8s.io
             - leases.coordination.k8s.io
             - endpointslices.discovery.k8s.io
             - events.events.k8s.io
