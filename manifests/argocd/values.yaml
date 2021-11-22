@@ -113,12 +113,6 @@ argo-cd:
             - https://172.16.74.128:6443
         resource.inclusions: |
           - apiGroups:
-            - "*"
-            kinds:
-            - "*""
-            clusters:
-            - https://172.16.74.128:6443
-          - apiGroups:
             - "run.tanzu.vmware.com"
             kinds:
             - TanzuKubernetesAddon
