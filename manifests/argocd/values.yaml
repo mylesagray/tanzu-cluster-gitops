@@ -105,6 +105,13 @@ argo-cd:
             - Backup
             clusters:
             - '*'
+          - apiGroups:
+            - ""
+            kinds:
+            - machinepools
+            - PodTemplate
+            clusters:
+            - 'https://172.16.74.128:6443'
         repositories: |
           - url: https://github.com/mylesagray/tanzu-cluster-gitops.git
           - url: https://charts.helm.sh/stable
