@@ -109,7 +109,6 @@ argo-cd:
           - apiGroups:
             - "run.tanzu.vmware.com"
             kinds:
-            - ProviderServiceAccount
             - TanzuKubernetesAddon
             - TanzuKubernetesCluster
             - TanzuKubernetesRelease
