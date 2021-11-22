@@ -109,7 +109,27 @@ argo-cd:
           - apiGroups:
             - "run.tanzu.vmware.com"
             kinds:
+            - ProviderServiceAccount
+            - TanzuKubernetesAddon
             - TanzuKubernetesCluster
+            - TanzuKubernetesRelease
+            - TkgServiceConfiguration
+            clusters:
+            - https://172.16.74.128:6443
+          - apiGroups:
+            - "cluster.x-k8s.io"
+            kinds:
+            - Cluster
+            - Machine
+            - MachineDeployment
+            - MachineHealthCheck
+            - MachineSet
+            clusters:
+            - https://172.16.74.128:6443
+          - apiGroups:
+            - "vmoperator.vmware.com"
+            kinds: 
+            - "*"
             clusters:
             - https://172.16.74.128:6443
         repositories: |
