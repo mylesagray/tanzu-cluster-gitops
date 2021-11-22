@@ -106,7 +106,7 @@ argo-cd:
             clusters:
             - '*'
           - apiGroups:
-            - ""
+            - "*"
             kinds:
             - PodTemplate
             - csistoragecapacities.storage.k8s.io
@@ -138,7 +138,7 @@ argo-cd:
             - compatibilities.run.tanzu.vmware.com
             - providerserviceaccounts.run.tanzu.vmware.com
             clusters:
-            - 'https://172.16.74.128:6443'
+            - https://172.16.74.128:6443
         repositories: |
           - url: https://github.com/mylesagray/tanzu-cluster-gitops.git
           - url: https://charts.helm.sh/stable
