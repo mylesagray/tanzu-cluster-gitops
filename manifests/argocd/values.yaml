@@ -113,7 +113,7 @@ argo-cd:
             - leases.coordination.k8s.io
             - endpointslices.discovery.k8s.io
             - events.events.k8s.io
-            - machinepools.exp.cluster.x-k8s.io
+            - MachinePool.exp.cluster.x-k8s.io
             - httproutes.networking.x-k8s.io
             - tcproutes.networking.x-k8s.io
             - clusterresourcesetbindings.addons.cluster.x-k8s.io
