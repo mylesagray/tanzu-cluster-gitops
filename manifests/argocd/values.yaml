@@ -105,7 +105,19 @@ argo-cd:
             - Backup
             clusters:
             - '*'
+          - apiGroups:
+            - ""
+            kinds:
+            - PodTemplate
+            clusters:
+            - https://172.16.74.128:6443
         resource.inclusions: |
+          - apiGroups:
+            - ""
+            kinds:
+            - "*""
+            clusters:
+            - https://172.16.74.128:6443
           - apiGroups:
             - "run.tanzu.vmware.com"
             kinds:
@@ -129,6 +141,34 @@ argo-cd:
             - "vmoperator.vmware.com"
             kinds: 
             - "*"
+            clusters:
+            - https://172.16.74.128:6443
+          - apiGroups:
+            - "controlplane.cluster.x-k8s.io"
+            - "bootstrap.cluster.x-k8s.io"
+            kinds: 
+            - KubeadmControlPlane
+            - KubeadmConfig
+            - KubeadmConfigTemplate
+            clusters:
+            - https://172.16.74.128:6443
+          - apiGroups:
+            - "infrastructure.cluster.vmware.com"
+            kinds: 
+            - "*"
+            clusters:
+            - https://172.16.74.128:6443
+          - apiGroups:
+            - "networking.x-k8s.io"
+            kinds: 
+            - Gateway
+            clusters:
+            - https://172.16.74.128:6443
+          - apiGroups:
+            - "rbac.authorization.k8s.io"
+            kinds: 
+            - Role
+            - RoleBinding
             clusters:
             - https://172.16.74.128:6443
         repositories: |
