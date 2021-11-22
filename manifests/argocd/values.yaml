@@ -109,8 +109,34 @@ argo-cd:
             - ""
             kinds:
             - PodTemplate
+            - csistoragecapacities.storage.k8s.io
+            - leases.coordination.k8s.io
+            - endpointslices.discovery.k8s.io
+            - events.events.k8s.io
             - machinepools.exp.cluster.x-k8s.io
+            - httproutes.networking.x-k8s.io
+            - tcproutes.networking.x-k8s.io
+            - clusterresourcesetbindings.addons.cluster.x-k8s.io
+            - clusterresourcesets.addons.cluster.x-k8s.io
+            - challenges.acme.cert-manager.io
+            - orders.acme.cert-manager.io
+            - installoptions.appplatform.wcp.vmware.com
+            - installrequirements.appplatform.wcp.vmware.com
+            - storagepolicies.appplatform.wcp.vmware.com
+            - vcuiplugins.appplatform.wcp.vmware.com
             - wcpnamespaces.appplatform.wcp.vmware.com
+            - cnscsisvfeaturestates.cns.vmware.com
+            - cnsfileaccessconfigs.cns.vmware.com
+            - cnsfilevolumeclients.cns.vmware.com
+            - cnsregistervolumes.cns.vmware.com
+            - cnsvolumemetadatas.cns.vmware.com
+            - networkinterfaces.netoperator.vmware.com
+            - vmxnet3networkinterfaces.netoperator.vmware.com
+            - members.registryagent.vmware.com
+            - projects.registryagent.vmware.com
+            - registries.registryagent.vmware.com
+            - compatibilities.run.tanzu.vmware.com
+            - providerserviceaccounts.run.tanzu.vmware.com
             clusters:
             - 'https://172.16.74.128:6443'
         repositories: |
