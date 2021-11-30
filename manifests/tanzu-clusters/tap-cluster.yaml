@@ -13,11 +13,11 @@ spec:
       defaultClass: vsan-default-storage-policy
   topology:
     controlPlane:
-      replicas: 1
+      replicas: 3
       storageClass: vsan-default-storage-policy
       vmClass: best-effort-large
     nodePools:
     - name: workers
-      replicas: 3
+      replicas: 4
       storageClass: vsan-default-storage-policy
       vmClass: best-effort-large
