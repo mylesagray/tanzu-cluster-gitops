@@ -11,11 +11,6 @@ metadata:
 spec:
   hard:
     vsan-default-storage-policy.storageclass.storage.k8s.io/requests.storage: "9223372036854775807"
-status:
-  hard:
-    vsan-default-storage-policy.storageclass.storage.k8s.io/requests.storage: "9223372036854775807"
-  used:
-    vsan-default-storage-policy.storageclass.storage.k8s.io/requests.storage: "0"
 ---
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachineClass
