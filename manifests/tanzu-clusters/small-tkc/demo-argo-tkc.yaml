@@ -10,6 +10,9 @@ spec:
       classes:
       - vsan-default-storage-policy
       defaultClass: vsan-default-storage-policy
+    network:
+      pods:
+        cidrBlocks: ['172.16.16.0/20']
   topology:
     controlPlane:
       replicas: 1
