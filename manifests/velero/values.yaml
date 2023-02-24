@@ -32,7 +32,7 @@ velero:
         velero.io/plugin-config: ""
         velero.io/restic: RestoreItemAction
       data:
-        image: velero/velero-restic-restore-helper:v1.9.5
+        image: velero/velero-restic-restore-helper:v1.9.6
   schedules:
     daily:
       schedule: 0 0 * * *
